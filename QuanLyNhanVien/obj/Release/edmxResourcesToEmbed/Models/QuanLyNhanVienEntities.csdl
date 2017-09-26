@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyNhanVien.Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="QuanLyNhanVienEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="P_DanhSachKhoaPhong" ReturnType="Collection(QuanLyNhanVien.Models.P_DanhSachKhoaPhong_Result)" />
+    <EntitySet Name="T_TocKy" EntityType="QuanLyNhanVien.Models.T_TocKy" />
+    <EntitySet Name="T_NhanVien" EntityType="QuanLyNhanVien.Models.T_NhanVien" />
+    <FunctionImport Name="P_DanhSachNhanVien" ReturnType="Collection(QuanLyNhanVien.Models.P_DanhSachNhanVien_Result)" />
+    <EntitySet Name="T_KhoaPhong" EntityType="QuanLyNhanVien.Models.T_KhoaPhong" />
+    <AssociationSet Name="FK__T_NhanVie__MaKho__0BC6C43E" Association="QuanLyNhanVien.Models.FK__T_NhanVie__MaKho__0BC6C43E">
+      <End Role="T_KhoaPhong" EntitySet="T_KhoaPhong" />
+      <End Role="T_NhanVien" EntitySet="T_NhanVien" />
+    </AssociationSet>
+    <EntitySet Name="T_PhieuKham" EntityType="QuanLyNhanVien.Models.T_PhieuKham" />
+    <AssociationSet Name="FK__T_PhieuKh__MaNha__0CBAE877" Association="QuanLyNhanVien.Models.FK__T_PhieuKh__MaNha__0CBAE877">
+      <End Role="T_NhanVien" EntitySet="T_NhanVien" />
+      <End Role="T_PhieuKham" EntitySet="T_PhieuKham" />
+    </AssociationSet>
+    <FunctionImport Name="P_DanhSachSucKhoeNhanVien" ReturnType="Collection(QuanLyNhanVien.Models.P_DanhSachSucKhoeNhanVien_Result)">
+      <Parameter Name="NamKham" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="P_DanhSachKhoaPhong_Result">
+    <Property Type="String" Name="MaKhoa" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="TenKhoa" Nullable="false" MaxLength="200" />
+  </ComplexType>
+  <EntityType Name="T_TocKy">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Loai" Type="Int16" />
+    <Property Name="STT" Type="Int32" />
+    <Property Name="KyHieu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDung" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_NhanVien">
+    <Key>
+      <PropertyRef Name="MaNhanVien" />
+    </Key>
+    <Property Name="MaNhanVien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaKhoa" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="STT" Type="Int32" />
+    <Property Name="NguoiLaoDong" Type="Boolean" />
+    <Property Name="TenNhanVien" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="Int16" />
+    <Property Name="ThangSinh" Type="Int16" />
+    <Property Name="NamSinh" Type="Int32" />
+    <Property Name="DiaChi" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="CMND" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCap" Type="DateTime" Precision="7" />
+    <Property Name="NoiCap" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="HoKhau" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ChoOHienNay" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NganhHoc" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="NoiHoc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChiHoc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayBatDauHoc" Type="DateTime" Precision="7" />
+    <Property Name="CongViecTruocDay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TienSuGiaDinh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TienSuBanThan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_KhoaPhong" Relationship="QuanLyNhanVien.Models.FK__T_NhanVie__MaKho__0BC6C43E" FromRole="T_NhanVien" ToRole="T_KhoaPhong" />
+    <NavigationProperty Name="T_PhieuKham" Relationship="QuanLyNhanVien.Models.FK__T_PhieuKh__MaNha__0CBAE877" FromRole="T_NhanVien" ToRole="T_PhieuKham" />
+  </EntityType>
+  <ComplexType Name="P_DanhSachNhanVien_Result">
+    <Property Type="String" Name="MaKhoa" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="TenKhoa" Nullable="true" MaxLength="212" />
+    <Property Type="String" Name="STTKhoa" Nullable="true" MaxLength="2" />
+    <Property Type="Int32" Name="STT" Nullable="true" />
+    <Property Type="Int32" Name="MaNhanVien" Nullable="false" />
+    <Property Type="String" Name="TenNhanVien" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <EntityType Name="T_KhoaPhong">
+    <Key>
+      <PropertyRef Name="MaKhoa" />
+    </Key>
+    <Property Name="STT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="MaKhoa" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="TenKhoa" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_NhanVien" Relationship="QuanLyNhanVien.Models.FK__T_NhanVie__MaKho__0BC6C43E" FromRole="T_KhoaPhong" ToRole="T_NhanVien" />
+  </EntityType>
+  <Association Name="FK__T_NhanVie__MaKho__0BC6C43E">
+    <End Type="QuanLyNhanVien.Models.T_KhoaPhong" Role="T_KhoaPhong" Multiplicity="1" />
+    <End Type="QuanLyNhanVien.Models.T_NhanVien" Role="T_NhanVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_KhoaPhong">
+        <PropertyRef Name="MaKhoa" />
+      </Principal>
+      <Dependent Role="T_NhanVien">
+        <PropertyRef Name="MaKhoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="T_PhieuKham">
+    <Key>
+      <PropertyRef Name="MaPhieuKham" />
+    </Key>
+    <Property Name="MaPhieuKham" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
+    <Property Name="NgayKham" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TL_ChieuCao" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TL_CanNang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TL_VongNgucTB" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TL_ChiSoBMI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TL_Mach" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TL_HuyetAp" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TL_NhietDo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TL_NhipTho" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TL_PhanLoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TL_BacSi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LS_TuanHoan" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="LS_TuanHoan_PhanLoai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LS_TuanHoan_BacSi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LS_HoHap" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="LS_HoHap_PhanLoai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LS_HoHap_BacSi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LS_TieuHoa" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="LS_TieuHoa_PhanLoai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LS_TieuHoa_BacSi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LS_ThanTietNieu" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="LS_ThanTietNieu_PhanLoai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LS_ThanTietNieu_BacSi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LS_ThanKinh" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="LS_ThanKinh_PhanLoai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LS_ThanKinh_BacSi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LS_TamThan" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="LS_TamThan_PhanLoai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LS_TamThan_BacSi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LS_HeVanDong" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="LS_HeVanDong_PhanLoai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LS_HeVanDong_BacSi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LS_NoiTiet" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="LS_NoiTiet_PhanLoai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LS_NoiTiet_BacSi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LS_DaLieu" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="LS_DaLieu_PhanLoai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LS_DaLieu_BacSi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LS_NgoaiKhoa" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="LS_NgoaiKhoa_PhanLoai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LS_NgoaiKhoa_BacSiKham" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LS_SanPhuKhoa" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="LS_SanPhuKhoa_PhanLoai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LS_SanPhuKhoa_BacSi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LS_Mat" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="LS_Mat_PhanLoai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LS_Mat_BacSi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LS_Mat_KhongKinh_MatPhai" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="LS_Mat_KhongKinh_MatTrai" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="LS_Mat_CoKinh_MatPhai" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="LS_Mat_CoKinh_MatTrai" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="LS_TaiMuiHong" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="LS_TaiMuiHong_PhanLoai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LS_TaiMuiHong_TaiTraiNoiTham" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="LS_TaiMuiHong_TaiTraiNoiThuong" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="LS_TaiMuiHong_TaiPhaiNoiTham" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="LS_TaiMuiHong_TaiPhaiNoiThuong" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="LS_TaiMuiHong_BacSiKham" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LS_RangHamMat" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="LS_RangHamMat_PhanLoai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LS_RangHamMat_BacSi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CLS_XetNghiemMau_SoLuongHC" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CLS_XetNghiemMau_BachCau" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CLS_XetNghiemMau_TieuCau" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CLS_XetNghiemMau_DuongMau" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CLS_XetNghiemMau_Khac" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="CLS_XetNghiemNuocTieu_Duong" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CLS_XetNghiemNuocTieu_Protein" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CLS_XetNghiemNuocTieu_Khac" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="CLS_ChanDoanHinhAnh_XQuangTimPhoi_BinhThuong" Type="Boolean" />
+    <Property Name="CLS_ChanDoanHinhAnh_XQuangTimPhoi_CuThe" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="CLS_ChanDoanHinhAnh_XQuangTimPhoi_Khac" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="CLS_NguoiGhiKetQua" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="KL_KhoeManh" Type="Boolean" />
+    <Property Name="KL_TenBenh" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="KL_DatSucKhoeLoai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="KL_DuDieuKienSucKhoe" Type="Boolean" />
+    <Property Name="KL_MoTa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_NhanVien" Relationship="QuanLyNhanVien.Models.FK__T_PhieuKh__MaNha__0CBAE877" FromRole="T_PhieuKham" ToRole="T_NhanVien" />
+  </EntityType>
+  <Association Name="FK__T_PhieuKh__MaNha__0CBAE877">
+    <End Type="QuanLyNhanVien.Models.T_NhanVien" Role="T_NhanVien" Multiplicity="1" />
+    <End Type="QuanLyNhanVien.Models.T_PhieuKham" Role="T_PhieuKham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_NhanVien">
+        <PropertyRef Name="MaNhanVien" />
+      </Principal>
+      <Dependent Role="T_PhieuKham">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="P_DanhSachSucKhoeNhanVien_Result">
+    <Property Type="Int64" Name="RowNumber" Nullable="true" />
+    <Property Type="Int32" Name="MaNhanVien" Nullable="false" />
+    <Property Type="String" Name="MaKhoa" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="TenKhoa" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="TenNhanVien" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="NamSinh" Nullable="true" />
+    <Property Type="Boolean" Name="GioiTinh" Nullable="true" />
+    <Property Type="Int32" Name="GioiTinh_Nam" Nullable="true" />
+    <Property Type="Int32" Name="GioiTinh_Nu" Nullable="true" />
+    <Property Type="DateTime" Name="NgayKham" Nullable="true" Precision="23" />
+    <Property Type="String" Name="TL_ChieuCao" Nullable="true" MaxLength="23" />
+    <Property Type="String" Name="TL_CanNang" Nullable="true" MaxLength="23" />
+    <Property Type="String" Name="TL_PhanLoai" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="LS_TuanHoan_PhanLoai" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="LS_HoHap_PhanLoai" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="LS_TieuHoa_PhanLoai" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="LS_ThanTietNieu_PhanLoai" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="LS_ThanKinh_PhanLoai" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="LS_TamThan_PhanLoai" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="LS_HeVanDong_PhanLoai" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="LS_NoiTiet_PhanLoai" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="LS_DaLieu_PhanLoai" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="LS_NgoaiKhoa_PhanLoai" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="LS_SanPhuKhoa_PhanLoai" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="LS_Mat_PhanLoai" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="LS_TaiMuiHong_PhanLoai" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="LS_RangHamMat_PhanLoai" Nullable="true" MaxLength="10" />
+    <Property Type="Boolean" Name="CLS_ChanDoanHinhAnh_XQuangTimPhoi_BinhThuong" Nullable="true" />
+    <Property Type="Boolean" Name="KL_KhoeManh" Nullable="true" />
+    <Property Type="String" Name="KL_TenBenh" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="KL_MoTa" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="KL_DatSucKhoeLoai" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="KL_DuDieuKienSucKhoe" Nullable="true" />
+  </ComplexType>
+</Schema>
