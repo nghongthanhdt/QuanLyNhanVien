@@ -177,6 +177,12 @@
     <Compile Include="App_Forms\SplashScreenMain.Designer.cs">
       <DependentUpon>SplashScreenMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="App_Reports\ReportDanhSachSucKhoeNhanVien.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="App_Reports\ReportDanhSachSucKhoeNhanVien.Designer.cs">
+      <DependentUpon>ReportDanhSachSucKhoeNhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="App_Reports\ReportHoSoSucKhoe.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -253,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="App_Forms\SplashScreenMain.resx">
       <DependentUpon>SplashScreenMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_Reports\ReportDanhSachSucKhoeNhanVien.resx">
+      <DependentUpon>ReportDanhSachSucKhoeNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="App_Reports\ReportHoSoSucKhoe.resx">
       <DependentUpon>ReportHoSoSucKhoe.cs</DependentUpon>
