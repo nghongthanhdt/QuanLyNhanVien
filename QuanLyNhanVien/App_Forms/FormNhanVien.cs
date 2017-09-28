@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QuanLyNhanVien.Models;
 using QuanLyNhanVien.Controllers;
+using System.Threading;
+using DevExpress.XtraSplashScreen;
 
 namespace QuanLyNhanVien.App_Forms
 {
@@ -293,7 +295,7 @@ namespace QuanLyNhanVien.App_Forms
 
         private void btnNhanVienLuu_Click(object sender, EventArgs e)
         {
-
+            
             if (!validateFormHanhChinh())
             {
                 return;
@@ -362,9 +364,14 @@ namespace QuanLyNhanVien.App_Forms
 
                 
                 loadNhanVien(nhanVien.MaNhanVien);
-                MessageBox.Show("Đã thêm nhân viên thành công");
 
-            } else
+                SplashScreenManager.ShowForm(typeof(SplashScreenSaveOK));
+                SplashScreenManager.CloseForm(false, 1500, this);
+
+
+
+            }
+            else
             {
                 //update
                 QuanLyNhanVienEntities db = new QuanLyNhanVienEntities();
@@ -421,7 +428,11 @@ namespace QuanLyNhanVien.App_Forms
                 nhanVien.TienSuBanThan = txtTienSuBanThan.Text;
 
                 db.SaveChanges();
-                MessageBox.Show("Đã cập nhật nhân viên thành công");
+
+                SplashScreenManager.ShowForm(typeof(SplashScreenSaveOK));
+                SplashScreenManager.CloseForm(false, 1000, this);
+
+
             }
             loadDanhSachNhanVien();
         }
@@ -541,6 +552,11 @@ namespace QuanLyNhanVien.App_Forms
                 MessageBox.Show("Lỗi hệ thống: " + ex.Message);
             }
             
+        }
+
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

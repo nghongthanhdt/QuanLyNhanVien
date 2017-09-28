@@ -37,6 +37,7 @@
             this.gvDanhSachSucKhoe = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colDSSKMaNhanVien = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDSSKMaKhoa = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDSSKSTT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDSSKTenKhoa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDSSKTenNhanVien = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDSSKGioiTinhNam = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -61,9 +62,9 @@
             this.colDSSKLSRangHamMatPhanLoai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDSSKCLSXQuangTimPhoi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDSSKKLKhoeManh = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDSSKKLTenBenh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDSSKKLDatSucKhoeLoai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDSSKKLMoTa = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDSSKKLTenBenh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDSSKKLDuDieuKienSucKhoe = new DevExpress.XtraGrid.Columns.GridColumn();
             this.selectNam = new System.Windows.Forms.ComboBox();
             this.btnInDanhSach = new DevExpress.XtraEditors.SimpleButton();
@@ -111,6 +112,7 @@
             this.btnDong.Size = new System.Drawing.Size(98, 34);
             this.btnDong.TabIndex = 2;
             this.btnDong.Text = "Đóng";
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // gcDanhSachSucKhoe
             // 
@@ -130,6 +132,7 @@
             this.gvDanhSachSucKhoe.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colDSSKMaNhanVien,
             this.colDSSKMaKhoa,
+            this.colDSSKSTT,
             this.colDSSKTenKhoa,
             this.colDSSKTenNhanVien,
             this.colDSSKGioiTinhNam,
@@ -154,14 +157,18 @@
             this.colDSSKLSRangHamMatPhanLoai,
             this.colDSSKCLSXQuangTimPhoi,
             this.colDSSKKLKhoeManh,
-            this.colDSSKKLTenBenh,
             this.colDSSKKLDatSucKhoeLoai,
             this.colDSSKKLMoTa,
+            this.colDSSKKLTenBenh,
             this.colDSSKKLDuDieuKienSucKhoe});
             this.gvDanhSachSucKhoe.GridControl = this.gcDanhSachSucKhoe;
             this.gvDanhSachSucKhoe.GroupCount = 1;
             this.gvDanhSachSucKhoe.Name = "gvDanhSachSucKhoe";
+            this.gvDanhSachSucKhoe.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.gvDanhSachSucKhoe.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.gvDanhSachSucKhoe.OptionsBehavior.AutoExpandAllGroups = true;
+            this.gvDanhSachSucKhoe.OptionsBehavior.Editable = false;
+            this.gvDanhSachSucKhoe.OptionsBehavior.ReadOnly = true;
             this.gvDanhSachSucKhoe.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colDSSKTenKhoa, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
@@ -177,6 +184,15 @@
             this.colDSSKMaKhoa.FieldName = "MaKhoa";
             this.colDSSKMaKhoa.Name = "colDSSKMaKhoa";
             // 
+            // colDSSKSTT
+            // 
+            this.colDSSKSTT.Caption = "STT";
+            this.colDSSKSTT.FieldName = "STT";
+            this.colDSSKSTT.Name = "colDSSKSTT";
+            this.colDSSKSTT.Visible = true;
+            this.colDSSKSTT.VisibleIndex = 0;
+            this.colDSSKSTT.Width = 41;
+            // 
             // colDSSKTenKhoa
             // 
             this.colDSSKTenKhoa.Caption = "Khoa";
@@ -191,62 +207,86 @@
             this.colDSSKTenNhanVien.FieldName = "TenNhanVien";
             this.colDSSKTenNhanVien.Name = "colDSSKTenNhanVien";
             this.colDSSKTenNhanVien.Visible = true;
-            this.colDSSKTenNhanVien.VisibleIndex = 0;
-            this.colDSSKTenNhanVien.Width = 172;
+            this.colDSSKTenNhanVien.VisibleIndex = 1;
+            this.colDSSKTenNhanVien.Width = 165;
             // 
             // colDSSKGioiTinhNam
             // 
+            this.colDSSKGioiTinhNam.AppearanceCell.Options.UseTextOptions = true;
+            this.colDSSKGioiTinhNam.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDSSKGioiTinhNam.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDSSKGioiTinhNam.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colDSSKGioiTinhNam.Caption = "Nam";
             this.colDSSKGioiTinhNam.FieldName = "GioiTinh_Nam";
             this.colDSSKGioiTinhNam.Name = "colDSSKGioiTinhNam";
             this.colDSSKGioiTinhNam.Visible = true;
-            this.colDSSKGioiTinhNam.VisibleIndex = 1;
-            this.colDSSKGioiTinhNam.Width = 49;
+            this.colDSSKGioiTinhNam.VisibleIndex = 2;
+            this.colDSSKGioiTinhNam.Width = 47;
             // 
             // colDSSKGioiTinhNu
             // 
+            this.colDSSKGioiTinhNu.AppearanceCell.Options.UseTextOptions = true;
+            this.colDSSKGioiTinhNu.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDSSKGioiTinhNu.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDSSKGioiTinhNu.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colDSSKGioiTinhNu.Caption = "Nữ";
             this.colDSSKGioiTinhNu.FieldName = "GioiTinh_Nu";
             this.colDSSKGioiTinhNu.Name = "colDSSKGioiTinhNu";
             this.colDSSKGioiTinhNu.Visible = true;
-            this.colDSSKGioiTinhNu.VisibleIndex = 2;
-            this.colDSSKGioiTinhNu.Width = 46;
+            this.colDSSKGioiTinhNu.VisibleIndex = 3;
+            this.colDSSKGioiTinhNu.Width = 44;
             // 
             // colDSSKNgayKham
             // 
+            this.colDSSKNgayKham.AppearanceCell.Options.UseTextOptions = true;
+            this.colDSSKNgayKham.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDSSKNgayKham.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDSSKNgayKham.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colDSSKNgayKham.Caption = "Ngày khám";
             this.colDSSKNgayKham.FieldName = "NgayKham";
             this.colDSSKNgayKham.Name = "colDSSKNgayKham";
             this.colDSSKNgayKham.Visible = true;
-            this.colDSSKNgayKham.VisibleIndex = 3;
-            this.colDSSKNgayKham.Width = 82;
+            this.colDSSKNgayKham.VisibleIndex = 4;
+            this.colDSSKNgayKham.Width = 78;
             // 
             // colDSSKChieuCao
             // 
+            this.colDSSKChieuCao.AppearanceCell.Options.UseTextOptions = true;
+            this.colDSSKChieuCao.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDSSKChieuCao.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDSSKChieuCao.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colDSSKChieuCao.Caption = "Chiều cao";
             this.colDSSKChieuCao.FieldName = "TL_ChieuCao";
             this.colDSSKChieuCao.Name = "colDSSKChieuCao";
             this.colDSSKChieuCao.Visible = true;
-            this.colDSSKChieuCao.VisibleIndex = 4;
-            this.colDSSKChieuCao.Width = 58;
+            this.colDSSKChieuCao.VisibleIndex = 5;
+            this.colDSSKChieuCao.Width = 64;
             // 
             // colDSSKCanNang
             // 
+            this.colDSSKCanNang.AppearanceCell.Options.UseTextOptions = true;
+            this.colDSSKCanNang.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDSSKCanNang.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDSSKCanNang.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colDSSKCanNang.Caption = "Cân nặng";
             this.colDSSKCanNang.FieldName = "TL_CanNang";
             this.colDSSKCanNang.Name = "colDSSKCanNang";
             this.colDSSKCanNang.Visible = true;
-            this.colDSSKCanNang.VisibleIndex = 5;
-            this.colDSSKCanNang.Width = 56;
+            this.colDSSKCanNang.VisibleIndex = 6;
+            this.colDSSKCanNang.Width = 60;
             // 
             // colDSSKTLPhanLoai
             // 
+            this.colDSSKTLPhanLoai.AppearanceCell.Options.UseTextOptions = true;
+            this.colDSSKTLPhanLoai.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDSSKTLPhanLoai.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDSSKTLPhanLoai.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colDSSKTLPhanLoai.Caption = "Thể lực";
             this.colDSSKTLPhanLoai.FieldName = "TL_PhanLoai";
             this.colDSSKTLPhanLoai.Name = "colDSSKTLPhanLoai";
             this.colDSSKTLPhanLoai.Visible = true;
-            this.colDSSKTLPhanLoai.VisibleIndex = 6;
-            this.colDSSKTLPhanLoai.Width = 50;
+            this.colDSSKTLPhanLoai.VisibleIndex = 7;
+            this.colDSSKTLPhanLoai.Width = 46;
             // 
             // colDSSKLSTuanHoanPhanLoai
             // 
@@ -340,48 +380,60 @@
             // 
             // colDSSKKLKhoeManh
             // 
+            this.colDSSKKLKhoeManh.AppearanceCell.Options.UseTextOptions = true;
+            this.colDSSKKLKhoeManh.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDSSKKLKhoeManh.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDSSKKLKhoeManh.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colDSSKKLKhoeManh.Caption = "Khỏe mạnh";
             this.colDSSKKLKhoeManh.FieldName = "KL_KhoeManh";
             this.colDSSKKLKhoeManh.Name = "colDSSKKLKhoeManh";
             this.colDSSKKLKhoeManh.Visible = true;
-            this.colDSSKKLKhoeManh.VisibleIndex = 7;
-            this.colDSSKKLKhoeManh.Width = 72;
-            // 
-            // colDSSKKLTenBenh
-            // 
-            this.colDSSKKLTenBenh.Caption = "Tên bệnh";
-            this.colDSSKKLTenBenh.FieldName = "KL_TenBenh";
-            this.colDSSKKLTenBenh.Name = "colDSSKKLTenBenh";
-            this.colDSSKKLTenBenh.Visible = true;
-            this.colDSSKKLTenBenh.VisibleIndex = 8;
-            this.colDSSKKLTenBenh.Width = 118;
+            this.colDSSKKLKhoeManh.VisibleIndex = 8;
+            this.colDSSKKLKhoeManh.Width = 73;
             // 
             // colDSSKKLDatSucKhoeLoai
             // 
-            this.colDSSKKLDatSucKhoeLoai.Caption = "Đạt sức khỏe loại";
+            this.colDSSKKLDatSucKhoeLoai.AppearanceCell.Options.UseTextOptions = true;
+            this.colDSSKKLDatSucKhoeLoai.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDSSKKLDatSucKhoeLoai.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDSSKKLDatSucKhoeLoai.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDSSKKLDatSucKhoeLoai.Caption = "Phân loại SK";
             this.colDSSKKLDatSucKhoeLoai.FieldName = "KL_DatSucKhoeLoai";
             this.colDSSKKLDatSucKhoeLoai.Name = "colDSSKKLDatSucKhoeLoai";
             this.colDSSKKLDatSucKhoeLoai.Visible = true;
             this.colDSSKKLDatSucKhoeLoai.VisibleIndex = 9;
-            this.colDSSKKLDatSucKhoeLoai.Width = 133;
+            this.colDSSKKLDatSucKhoeLoai.Width = 100;
             // 
             // colDSSKKLMoTa
             // 
-            this.colDSSKKLMoTa.Caption = "Mô tả";
+            this.colDSSKKLMoTa.Caption = "Mô tả kết luận";
             this.colDSSKKLMoTa.FieldName = "KL_MoTa";
             this.colDSSKKLMoTa.Name = "colDSSKKLMoTa";
             this.colDSSKKLMoTa.Visible = true;
             this.colDSSKKLMoTa.VisibleIndex = 10;
-            this.colDSSKKLMoTa.Width = 144;
+            this.colDSSKKLMoTa.Width = 120;
+            // 
+            // colDSSKKLTenBenh
+            // 
+            this.colDSSKKLTenBenh.Caption = "Tình trạng SK";
+            this.colDSSKKLTenBenh.FieldName = "KL_TenBenh";
+            this.colDSSKKLTenBenh.Name = "colDSSKKLTenBenh";
+            this.colDSSKKLTenBenh.Visible = true;
+            this.colDSSKKLTenBenh.VisibleIndex = 11;
+            this.colDSSKKLTenBenh.Width = 120;
             // 
             // colDSSKKLDuDieuKienSucKhoe
             // 
+            this.colDSSKKLDuDieuKienSucKhoe.AppearanceCell.Options.UseTextOptions = true;
+            this.colDSSKKLDuDieuKienSucKhoe.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDSSKKLDuDieuKienSucKhoe.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDSSKKLDuDieuKienSucKhoe.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colDSSKKLDuDieuKienSucKhoe.Caption = "Đủ sức khỏe đi làm";
             this.colDSSKKLDuDieuKienSucKhoe.FieldName = "KL_DuDieuKienSucKhoe";
             this.colDSSKKLDuDieuKienSucKhoe.Name = "colDSSKKLDuDieuKienSucKhoe";
             this.colDSSKKLDuDieuKienSucKhoe.Visible = true;
-            this.colDSSKKLDuDieuKienSucKhoe.VisibleIndex = 11;
-            this.colDSSKKLDuDieuKienSucKhoe.Width = 172;
+            this.colDSSKKLDuDieuKienSucKhoe.VisibleIndex = 12;
+            this.colDSSKKLDuDieuKienSucKhoe.Width = 194;
             // 
             // selectNam
             // 
@@ -404,6 +456,7 @@
             this.btnInDanhSach.Size = new System.Drawing.Size(115, 34);
             this.btnInDanhSach.TabIndex = 2;
             this.btnInDanhSach.Text = "In danh sách";
+            this.btnInDanhSach.Click += new System.EventHandler(this.btnInDanhSach_Click);
             // 
             // FormBaoCaoDanhSachSucKhoe
             // 
@@ -469,5 +522,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDSSKLSTamThanPhanLoai;
         private DevExpress.XtraGrid.Columns.GridColumn colDSSKKLTenBenh;
         private DevExpress.XtraGrid.Columns.GridColumn colDSSKKLMoTa;
+        private DevExpress.XtraGrid.Columns.GridColumn colDSSKSTT;
     }
 }

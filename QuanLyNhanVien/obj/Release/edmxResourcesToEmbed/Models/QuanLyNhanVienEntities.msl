@@ -160,6 +160,7 @@
         <ComplexTypeMapping TypeName="QuanLyNhanVien.Models.P_DanhSachSucKhoeNhanVien_Result">
           <ScalarProperty Name="RowNumber" ColumnName="RowNumber" />
           <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
           <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
           <ScalarProperty Name="TenKhoa" ColumnName="TenKhoa" />
           <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />

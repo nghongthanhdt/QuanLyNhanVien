@@ -192,6 +192,7 @@
   <ComplexType Name="P_DanhSachSucKhoeNhanVien_Result">
     <Property Type="Int64" Name="RowNumber" Nullable="true" />
     <Property Type="Int32" Name="MaNhanVien" Nullable="false" />
+    <Property Type="Int32" Name="STT" Nullable="true" />
     <Property Type="String" Name="MaKhoa" Nullable="true" MaxLength="2" />
     <Property Type="String" Name="TenKhoa" Nullable="true" MaxLength="200" />
     <Property Type="String" Name="TenNhanVien" Nullable="false" MaxLength="100" />

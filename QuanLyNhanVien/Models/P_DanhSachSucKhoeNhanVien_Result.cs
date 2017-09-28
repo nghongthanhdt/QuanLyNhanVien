@@ -15,6 +15,7 @@ namespace QuanLyNhanVien.Models
     {
         public Nullable<long> RowNumber { get; set; }
         public int MaNhanVien { get; set; }
+        public Nullable<int> STT { get; set; }
         public string MaKhoa { get; set; }
         public string TenKhoa { get; set; }
         public string TenNhanVien { get; set; }

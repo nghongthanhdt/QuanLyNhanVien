@@ -76,6 +76,7 @@
     <Reference Include="DevExpress.Data.v16.1" />
     <Reference Include="DevExpress.Data.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.DataAccess.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.PivotGrid.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -177,6 +178,18 @@
     <Compile Include="App_Forms\SplashScreenMain.Designer.cs">
       <DependentUpon>SplashScreenMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="App_Forms\SplashScreenSaveOK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App_Forms\SplashScreenSaveOK.Designer.cs">
+      <DependentUpon>SplashScreenSaveOK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App_Forms\WaitFormLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App_Forms\WaitFormLoading.Designer.cs">
+      <DependentUpon>WaitFormLoading.cs</DependentUpon>
+    </Compile>
     <Compile Include="App_Reports\ReportDanhSachSucKhoeNhanVien.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -259,6 +272,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="App_Forms\SplashScreenMain.resx">
       <DependentUpon>SplashScreenMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_Forms\SplashScreenSaveOK.resx">
+      <DependentUpon>SplashScreenSaveOK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_Forms\WaitFormLoading.resx">
+      <DependentUpon>WaitFormLoading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="App_Reports\ReportDanhSachSucKhoeNhanVien.resx">
       <DependentUpon>ReportDanhSachSucKhoeNhanVien.cs</DependentUpon>

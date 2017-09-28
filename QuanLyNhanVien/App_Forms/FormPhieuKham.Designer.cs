@@ -207,8 +207,10 @@
             this.radioKLMacBenh = new System.Windows.Forms.RadioButton();
             this.radioKLKhoeManh = new System.Windows.Forms.RadioButton();
             this.checkboxDuDieuKienSucKhoe = new DevExpress.XtraEditors.CheckEdit();
+            this.labelControl94 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl88 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl58 = new DevExpress.XtraEditors.LabelControl();
+            this.txtMoTaKetLuan = new System.Windows.Forms.TextBox();
             this.txtKLDatSucKhoeLoai = new System.Windows.Forms.TextBox();
             this.txtKLTenBenh = new System.Windows.Forms.TextBox();
             this.labelControl89 = new DevExpress.XtraEditors.LabelControl();
@@ -219,8 +221,6 @@
             this.radioNguoiLaoDong = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateNgayKham = new DevExpress.XtraEditors.DateEdit();
-            this.txtMoTaKetLuan = new System.Windows.Forms.TextBox();
-            this.labelControl94 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -1844,7 +1844,7 @@
             this.groupControl5.Controls.Add(this.labelControl89);
             this.groupControl5.Location = new System.Drawing.Point(831, 192);
             this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Size = new System.Drawing.Size(170, 361);
+            this.groupControl5.Size = new System.Drawing.Size(170, 270);
             this.groupControl5.TabIndex = 6;
             this.groupControl5.Text = "III. KẾT LUẬN";
             // 
@@ -1886,7 +1886,7 @@
             // checkboxDuDieuKienSucKhoe
             // 
             this.checkboxDuDieuKienSucKhoe.EditValue = true;
-            this.checkboxDuDieuKienSucKhoe.Location = new System.Drawing.Point(12, 276);
+            this.checkboxDuDieuKienSucKhoe.Location = new System.Drawing.Point(10, 219);
             this.checkboxDuDieuKienSucKhoe.Name = "checkboxDuDieuKienSucKhoe";
             this.checkboxDuDieuKienSucKhoe.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.checkboxDuDieuKienSucKhoe.Properties.Appearance.Options.UseFont = true;
@@ -1894,9 +1894,17 @@
             this.checkboxDuDieuKienSucKhoe.Size = new System.Drawing.Size(153, 19);
             this.checkboxDuDieuKienSucKhoe.TabIndex = 76;
             // 
+            // labelControl94
+            // 
+            this.labelControl94.Location = new System.Drawing.Point(10, 177);
+            this.labelControl94.Name = "labelControl94";
+            this.labelControl94.Size = new System.Drawing.Size(72, 13);
+            this.labelControl94.TabIndex = 0;
+            this.labelControl94.Text = "Mô tả kết luận:";
+            // 
             // labelControl88
             // 
-            this.labelControl88.Location = new System.Drawing.Point(10, 166);
+            this.labelControl88.Location = new System.Drawing.Point(10, 134);
             this.labelControl88.Name = "labelControl88";
             this.labelControl88.Size = new System.Drawing.Size(87, 13);
             this.labelControl88.TabIndex = 0;
@@ -1910,27 +1918,34 @@
             this.labelControl58.TabIndex = 0;
             this.labelControl58.Text = "Tên bệnh:";
             // 
+            // txtMoTaKetLuan
+            // 
+            this.txtMoTaKetLuan.Location = new System.Drawing.Point(10, 192);
+            this.txtMoTaKetLuan.Name = "txtMoTaKetLuan";
+            this.txtMoTaKetLuan.Size = new System.Drawing.Size(155, 21);
+            this.txtMoTaKetLuan.TabIndex = 75;
+            this.txtMoTaKetLuan.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMoTaKetLuan_KeyUp);
+            // 
             // txtKLDatSucKhoeLoai
             // 
-            this.txtKLDatSucKhoeLoai.Location = new System.Drawing.Point(10, 181);
+            this.txtKLDatSucKhoeLoai.Location = new System.Drawing.Point(10, 149);
             this.txtKLDatSucKhoeLoai.Name = "txtKLDatSucKhoeLoai";
-            this.txtKLDatSucKhoeLoai.Size = new System.Drawing.Size(155, 21);
+            this.txtKLDatSucKhoeLoai.Size = new System.Drawing.Size(60, 21);
             this.txtKLDatSucKhoeLoai.TabIndex = 74;
             this.txtKLDatSucKhoeLoai.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtKLDatSucKhoeLoai_KeyUp);
             // 
             // txtKLTenBenh
             // 
             this.txtKLTenBenh.Location = new System.Drawing.Point(10, 108);
-            this.txtKLTenBenh.Multiline = true;
             this.txtKLTenBenh.Name = "txtKLTenBenh";
-            this.txtKLTenBenh.Size = new System.Drawing.Size(155, 55);
+            this.txtKLTenBenh.Size = new System.Drawing.Size(155, 21);
             this.txtKLTenBenh.TabIndex = 73;
             // 
             // labelControl89
             // 
             this.labelControl89.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.labelControl89.Appearance.Options.UseFont = true;
-            this.labelControl89.Location = new System.Drawing.Point(29, 298);
+            this.labelControl89.Location = new System.Drawing.Point(27, 241);
             this.labelControl89.Name = "labelControl89";
             this.labelControl89.Size = new System.Drawing.Size(112, 13);
             this.labelControl89.TabIndex = 0;
@@ -2018,22 +2033,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgayKham.Size = new System.Drawing.Size(92, 20);
             this.dateNgayKham.TabIndex = 0;
-            // 
-            // txtMoTaKetLuan
-            // 
-            this.txtMoTaKetLuan.Location = new System.Drawing.Point(10, 224);
-            this.txtMoTaKetLuan.Multiline = true;
-            this.txtMoTaKetLuan.Name = "txtMoTaKetLuan";
-            this.txtMoTaKetLuan.Size = new System.Drawing.Size(155, 46);
-            this.txtMoTaKetLuan.TabIndex = 75;
-            // 
-            // labelControl94
-            // 
-            this.labelControl94.Location = new System.Drawing.Point(10, 209);
-            this.labelControl94.Name = "labelControl94";
-            this.labelControl94.Size = new System.Drawing.Size(72, 13);
-            this.labelControl94.TabIndex = 0;
-            this.labelControl94.Text = "Mô tả kết luận:";
             // 
             // FormPhieuKham
             // 

@@ -395,3 +395,6 @@ D:\_Developer\QuanLyNhanVien\QuanLyNhanVien\obj\Release\QuanLyNhanVien.csproj.Ge
 D:\_Developer\QuanLyNhanVien\QuanLyNhanVien\obj\Release\QuanLyNhanVien.exe.licenses
 D:\_Developer\QuanLyNhanVien\QuanLyNhanVien\obj\Release\QuanLyNhanVien.exe.manifest
 D:\_Developer\QuanLyNhanVien\QuanLyNhanVien\obj\Release\QuanLyNhanVien.application
+D:\_Developer\QuanLyNhanVien\QuanLyNhanVien\bin\Release\DevExpress.Images.v16.1.dll
+D:\_Developer\QuanLyNhanVien\QuanLyNhanVien\obj\Release\QuanLyNhanVien.App_Forms.SplashScreenSaveOK.resources
+D:\_Developer\QuanLyNhanVien\QuanLyNhanVien\obj\Release\QuanLyNhanVien.App_Forms.WaitFormLoading.resources

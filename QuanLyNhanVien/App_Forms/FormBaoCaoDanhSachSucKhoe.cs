@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using QuanLyNhanVien.Models;
+using QuanLyNhanVien.App_Reports;
+using DevExpress.XtraReports.UI;
 
 namespace QuanLyNhanVien.App_Forms
 {
@@ -53,7 +55,54 @@ namespace QuanLyNhanVien.App_Forms
         private void btnXem_Click(object sender, EventArgs e)
         {
             QuanLyNhanVienEntities db = new QuanLyNhanVienEntities();
-            gcDanhSachSucKhoe.DataSource = db.P_DanhSachSucKhoeNhanVien("").ToList();
+            string nam = "";
+            if (selectBaoCaoTheo.SelectedIndex == 1)
+            {
+                if (selectNam.Text == "")
+                {
+                    MessageBox.Show("Chưa chọn năm!");
+                    return;
+                }
+                else nam = selectNam.Text;
+            }
+            gcDanhSachSucKhoe.DataSource = db.P_DanhSachSucKhoeNhanVien(nam).ToList();
+        }
+
+        private void btnInDanhSach_Click(object sender, EventArgs e)
+        {
+            string nam = "";
+            if (selectBaoCaoTheo.SelectedIndex == 1)
+            {
+                if (selectNam.Text == "")
+                {
+                    MessageBox.Show("Chưa chọn năm!");
+                    return;
+                }
+                else nam = selectNam.Text;
+            }
+            
+
+
+            ReportDanhSachSucKhoeNhanVien report = new ReportDanhSachSucKhoeNhanVien();
+            report.parameterNam.Visible = false;
+            report.parameterNam.Value = nam;
+            if (nam == "")
+            {
+                report.lblNam.Text = "Năm " + DateTime.Now.Year.ToString();
+            } else
+            {
+                report.lblNam.Text = "Năm " + nam;
+            }
+
+
+            
+            report.ShowRibbonPreview();
+            
+        }
+
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

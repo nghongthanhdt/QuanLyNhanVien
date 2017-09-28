@@ -117,8 +117,8 @@
     <Property Name="KL_KhoeManh" Type="bit" />
     <Property Name="KL_TenBenh" Type="nvarchar" MaxLength="300" />
     <Property Name="KL_DatSucKhoeLoai" Type="nvarchar" MaxLength="100" />
-    <Property Name="KL_DuDieuKienSucKhoe" Type="bit" />
     <Property Name="KL_MoTa" Type="nvarchar" MaxLength="500" />
+    <Property Name="KL_DuDieuKienSucKhoe" Type="bit" />
   </EntityType>
   <EntityType Name="T_TocKy">
     <Key>

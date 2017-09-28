@@ -122,8 +122,8 @@
           <Property Name="KL_KhoeManh" Type="bit" />
           <Property Name="KL_TenBenh" Type="nvarchar" MaxLength="300" />
           <Property Name="KL_DatSucKhoeLoai" Type="nvarchar" MaxLength="100" />
-          <Property Name="KL_DuDieuKienSucKhoe" Type="bit" />
           <Property Name="KL_MoTa" Type="nvarchar" MaxLength="500" />
+          <Property Name="KL_DuDieuKienSucKhoe" Type="bit" />
         </EntityType>
         <EntityType Name="T_TocKy">
           <Key>
@@ -374,6 +374,7 @@
         <ComplexType Name="P_DanhSachSucKhoeNhanVien_Result">
           <Property Type="Int64" Name="RowNumber" Nullable="true" />
           <Property Type="Int32" Name="MaNhanVien" Nullable="false" />
+          <Property Type="Int32" Name="STT" Nullable="true" />
           <Property Type="String" Name="MaKhoa" Nullable="true" MaxLength="2" />
           <Property Type="String" Name="TenKhoa" Nullable="true" MaxLength="200" />
           <Property Type="String" Name="TenNhanVien" Nullable="false" MaxLength="100" />
@@ -571,6 +572,7 @@
               <ComplexTypeMapping TypeName="QuanLyNhanVien.Models.P_DanhSachSucKhoeNhanVien_Result">
                 <ScalarProperty Name="RowNumber" ColumnName="RowNumber" />
                 <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
                 <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
                 <ScalarProperty Name="TenKhoa" ColumnName="TenKhoa" />
                 <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />

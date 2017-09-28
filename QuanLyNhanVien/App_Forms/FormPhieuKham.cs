@@ -613,5 +613,12 @@ namespace QuanLyNhanVien.App_Forms
         {
             setTocKyTextBox(txtKLDatSucKhoeLoai, e, 2);
         }
+
+
+
+        private void txtMoTaKetLuan_KeyUp(object sender, KeyEventArgs e)
+        {
+            setTocKyTextBox(txtMoTaKetLuan, e, 4);
+        }
     }
 }

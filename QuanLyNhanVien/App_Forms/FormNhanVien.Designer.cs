@@ -111,6 +111,7 @@ namespace QuanLyNhanVien.App_Forms
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btnDong = new DevExpress.XtraEditors.SimpleButton();
             this.btnNhanVienHuyBo = new DevExpress.XtraEditors.SimpleButton();
             this.btnNhanVienXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnNhanVienLuu = new DevExpress.XtraEditors.SimpleButton();
@@ -292,6 +293,7 @@ namespace QuanLyNhanVien.App_Forms
             this.splitContainerControl2.Name = "splitContainerControl2";
             this.splitContainerControl2.Panel1.Controls.Add(this.layoutControl1);
             this.splitContainerControl2.Panel1.Text = "Panel1";
+            this.splitContainerControl2.Panel2.Controls.Add(this.btnDong);
             this.splitContainerControl2.Panel2.Controls.Add(this.btnNhanVienHuyBo);
             this.splitContainerControl2.Panel2.Controls.Add(this.btnNhanVienXoa);
             this.splitContainerControl2.Panel2.Controls.Add(this.btnNhanVienLuu);
@@ -992,6 +994,16 @@ namespace QuanLyNhanVien.App_Forms
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
+            // btnDong
+            // 
+            this.btnDong.Image = ((System.Drawing.Image)(resources.GetObject("btnDong.Image")));
+            this.btnDong.Location = new System.Drawing.Point(535, 12);
+            this.btnDong.Name = "btnDong";
+            this.btnDong.Size = new System.Drawing.Size(129, 45);
+            this.btnDong.TabIndex = 7;
+            this.btnDong.Text = "Đóng";
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
+            // 
             // btnNhanVienHuyBo
             // 
             this.btnNhanVienHuyBo.Image = ((System.Drawing.Image)(resources.GetObject("btnNhanVienHuyBo.Image")));
@@ -1208,5 +1220,6 @@ namespace QuanLyNhanVien.App_Forms
         private LayoutControlItem layoutControlItem4;
         private DevExpress.XtraGrid.Columns.GridColumn colDanhSachNVSTTKhoa;
         private SimpleButton btnCopyPhieuKham;
+        private SimpleButton btnDong;
     }
 }

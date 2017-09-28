@@ -271,6 +271,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DevExpress.Images.v16.1.dll" size="3421992">
+      <assemblyIdentity name="DevExpress.Images.v16.1" version="16.1.6.0" publicKeyToken="B88D1754D700E49A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>v2M/W5A7M2DVOhjzeN/Ul4VsACmGbYm1iLMlf/thYNk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DevExpress.Office.v16.1.Core.dll" size="1140008">
       <assemblyIdentity name="DevExpress.Office.v16.1.Core" version="16.1.6.0" publicKeyToken="B88D1754D700E49A" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -1771,14 +1783,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QuanLyNhanVien.exe" size="707048">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QuanLyNhanVien.exe" size="723944">
       <assemblyIdentity name="QuanLyNhanVien" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>PzYgdYYdsrAX/ey71s7KYgMLhu2uKDBQEJkYaD6LMA4=</dsig:DigestValue>
+        <dsig:DigestValue>P4Z5LaUu6aXMWaaMIFYYOpw/+0fGLWgYPAqrW8bWiGo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
