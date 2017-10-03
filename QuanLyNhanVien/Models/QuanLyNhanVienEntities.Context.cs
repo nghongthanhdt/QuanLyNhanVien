@@ -31,6 +31,7 @@ namespace QuanLyNhanVien.Models
         public virtual DbSet<T_NhanVien> T_NhanVien { get; set; }
         public virtual DbSet<T_KhoaPhong> T_KhoaPhong { get; set; }
         public virtual DbSet<T_PhieuKham> T_PhieuKham { get; set; }
+        public virtual DbSet<T_KhoThietBi> T_KhoThietBi { get; set; }
     
         public virtual ObjectResult<P_DanhSachKhoaPhong_Result> P_DanhSachKhoaPhong()
         {
@@ -49,6 +50,45 @@ namespace QuanLyNhanVien.Models
                 new ObjectParameter("NamKham", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<P_DanhSachSucKhoeNhanVien_Result>("P_DanhSachSucKhoeNhanVien", namKhamParameter);
+        }
+    
+        public virtual ObjectResult<P_DanhSachKhoThietBi_Result> P_DanhSachKhoThietBi()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<P_DanhSachKhoThietBi_Result>("P_DanhSachKhoThietBi");
+        }
+    
+        public virtual int P_InsertKho(string maKhoa, string tenKho)
+        {
+            var maKhoaParameter = maKhoa != null ?
+                new ObjectParameter("MaKhoa", maKhoa) :
+                new ObjectParameter("MaKhoa", typeof(string));
+    
+            var tenKhoParameter = tenKho != null ?
+                new ObjectParameter("TenKho", tenKho) :
+                new ObjectParameter("TenKho", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_InsertKho", maKhoaParameter, tenKhoParameter);
+        }
+    
+        public virtual int P_UpdateKho(Nullable<int> maKho, string maKhoa, string tenKho, string kyHieu)
+        {
+            var maKhoParameter = maKho.HasValue ?
+                new ObjectParameter("MaKho", maKho) :
+                new ObjectParameter("MaKho", typeof(int));
+    
+            var maKhoaParameter = maKhoa != null ?
+                new ObjectParameter("MaKhoa", maKhoa) :
+                new ObjectParameter("MaKhoa", typeof(string));
+    
+            var tenKhoParameter = tenKho != null ?
+                new ObjectParameter("TenKho", tenKho) :
+                new ObjectParameter("TenKho", typeof(string));
+    
+            var kyHieuParameter = kyHieu != null ?
+                new ObjectParameter("KyHieu", kyHieu) :
+                new ObjectParameter("KyHieu", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_UpdateKho", maKhoParameter, maKhoaParameter, tenKhoParameter, kyHieuParameter);
         }
     }
 }

@@ -195,5 +195,31 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="P_DanhSachKhoThietBi" FunctionName="QuanLyNhanVien.Models.Store.P_DanhSachKhoThietBi">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLyNhanVien.Models.P_DanhSachKhoThietBi_Result">
+          <ScalarProperty Name="MaKho" ColumnName="MaKho" />
+          <ScalarProperty Name="TenKho" ColumnName="TenKho" />
+          <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
+          <ScalarProperty Name="TenKhoa" ColumnName="TenKhoa" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="KyHieu" ColumnName="KyHieu" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="T_KhoThietBi">
+      <EntityTypeMapping TypeName="QuanLyNhanVien.Models.T_KhoThietBi">
+        <MappingFragment StoreEntitySet="T_KhoThietBi">
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="KyHieu" ColumnName="KyHieu" />
+          <ScalarProperty Name="TenKho" ColumnName="TenKho" />
+          <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
+          <ScalarProperty Name="MaKho" ColumnName="MaKho" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="P_InsertKho" FunctionName="QuanLyNhanVien.Models.Store.P_InsertKho" />
+    <FunctionImportMapping FunctionImportName="P_UpdateKho" FunctionName="QuanLyNhanVien.Models.Store.P_UpdateKho" />
   </EntityContainerMapping>
 </Mapping>

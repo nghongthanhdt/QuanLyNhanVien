@@ -18,6 +18,22 @@
     <FunctionImport Name="P_DanhSachSucKhoeNhanVien" ReturnType="Collection(QuanLyNhanVien.Models.P_DanhSachSucKhoeNhanVien_Result)">
       <Parameter Name="NamKham" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="P_DanhSachKhoThietBi" ReturnType="Collection(QuanLyNhanVien.Models.P_DanhSachKhoThietBi_Result)" />
+    <EntitySet Name="T_KhoThietBi" EntityType="QuanLyNhanVien.Models.T_KhoThietBi" />
+    <AssociationSet Name="FK__T_KhoThie__MaKho__34C8D9D1" Association="QuanLyNhanVien.Models.FK__T_KhoThie__MaKho__34C8D9D1">
+      <End Role="T_KhoaPhong" EntitySet="T_KhoaPhong" />
+      <End Role="T_KhoThietBi" EntitySet="T_KhoThietBi" />
+    </AssociationSet>
+    <FunctionImport Name="P_InsertKho">
+      <Parameter Name="MaKhoa" Mode="In" Type="String" />
+      <Parameter Name="TenKho" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_UpdateKho">
+      <Parameter Name="MaKho" Mode="In" Type="Int32" />
+      <Parameter Name="MaKhoa" Mode="In" Type="String" />
+      <Parameter Name="TenKho" Mode="In" Type="String" />
+      <Parameter Name="KyHieu" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="P_DanhSachKhoaPhong_Result">
     <Property Type="String" Name="MaKhoa" Nullable="false" MaxLength="2" />
@@ -78,6 +94,7 @@
     <Property Name="MaKhoa" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
     <Property Name="TenKhoa" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="T_NhanVien" Relationship="QuanLyNhanVien.Models.FK__T_NhanVie__MaKho__0BC6C43E" FromRole="T_KhoaPhong" ToRole="T_NhanVien" />
+    <NavigationProperty Name="T_KhoThietBi" Relationship="QuanLyNhanVien.Models.FK__T_KhoThie__MaKho__34C8D9D1" FromRole="T_KhoaPhong" ToRole="T_KhoThietBi" />
   </EntityType>
   <Association Name="FK__T_NhanVie__MaKho__0BC6C43E">
     <End Type="QuanLyNhanVien.Models.T_KhoaPhong" Role="T_KhoaPhong" Multiplicity="1" />
@@ -225,4 +242,36 @@
     <Property Type="String" Name="KL_DatSucKhoeLoai" Nullable="true" MaxLength="100" />
     <Property Type="Boolean" Name="KL_DuDieuKienSucKhoe" Nullable="true" />
   </ComplexType>
+  <ComplexType Name="P_DanhSachKhoThietBi_Result">
+    <Property Type="Int32" Name="MaKho" Nullable="false" />
+    <Property Type="String" Name="TenKho" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="MaKhoa" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="TenKhoa" Nullable="true" MaxLength="205" />
+    <Property Type="Int32" Name="STT" Nullable="true" />
+    <Property Type="String" Name="KyHieu" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <EntityType Name="T_KhoThietBi">
+    <Key>
+      <PropertyRef Name="MaKho" />
+    </Key>
+    <Property Name="MaKho" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaKhoa" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="TenKho" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="KyHieu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="STT" Type="Int32" />
+    <Property Name="IsEnable" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="T_KhoaPhong" Relationship="QuanLyNhanVien.Models.FK__T_KhoThie__MaKho__34C8D9D1" FromRole="T_KhoThietBi" ToRole="T_KhoaPhong" />
+  </EntityType>
+  <Association Name="FK__T_KhoThie__MaKho__34C8D9D1">
+    <End Type="QuanLyNhanVien.Models.T_KhoaPhong" Role="T_KhoaPhong" Multiplicity="1" />
+    <End Type="QuanLyNhanVien.Models.T_KhoThietBi" Role="T_KhoThietBi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_KhoaPhong">
+        <PropertyRef Name="MaKhoa" />
+      </Principal>
+      <Dependent Role="T_KhoThietBi">
+        <PropertyRef Name="MaKhoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

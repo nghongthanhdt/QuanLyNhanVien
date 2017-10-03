@@ -13,6 +13,17 @@
           <Property Name="MaKhoa" Type="nvarchar" MaxLength="2" Nullable="false" />
           <Property Name="TenKhoa" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
+        <EntityType Name="T_KhoThietBi">
+          <Key>
+            <PropertyRef Name="MaKho" />
+          </Key>
+          <Property Name="MaKho" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaKhoa" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="TenKho" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="KyHieu" Type="nvarchar" MaxLength="10" />
+          <Property Name="STT" Type="int" />
+          <Property Name="IsEnable" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="T_NhanVien">
           <Key>
             <PropertyRef Name="MaNhanVien" />
@@ -135,6 +146,18 @@
           <Property Name="KyHieu" Type="nvarchar" MaxLength="50" />
           <Property Name="NoiDung" Type="nvarchar" MaxLength="500" />
         </EntityType>
+        <Association Name="FK__T_KhoThie__MaKho__34C8D9D1">
+          <End Role="T_KhoaPhong" Type="Self.T_KhoaPhong" Multiplicity="1" />
+          <End Role="T_KhoThietBi" Type="Self.T_KhoThietBi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_KhoaPhong">
+              <PropertyRef Name="MaKhoa" />
+            </Principal>
+            <Dependent Role="T_KhoThietBi">
+              <PropertyRef Name="MaKhoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__T_NhanVie__MaKho__0BC6C43E">
           <End Role="T_KhoaPhong" Type="Self.T_KhoaPhong" Multiplicity="1" />
           <End Role="T_NhanVien" Type="Self.T_NhanVien" Multiplicity="*" />
@@ -160,15 +183,31 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="P_DanhSachKhoaPhong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="P_DanhSachKhoThietBi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="P_DanhSachNhanVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="P_DanhSachSucKhoeNhanVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NamKham" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="P_InsertKho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaKhoa" Type="nvarchar" Mode="In" />
+          <Parameter Name="TenKho" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="P_UpdateKho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaKho" Type="int" Mode="In" />
+          <Parameter Name="MaKhoa" Type="nvarchar" Mode="In" />
+          <Parameter Name="TenKho" Type="nvarchar" Mode="In" />
+          <Parameter Name="KyHieu" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="QuanLyNhanVienModelsStoreContainer">
           <EntitySet Name="T_KhoaPhong" EntityType="Self.T_KhoaPhong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_KhoThietBi" EntityType="Self.T_KhoThietBi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_NhanVien" EntityType="Self.T_NhanVien" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_PhieuKham" EntityType="Self.T_PhieuKham" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_TocKy" EntityType="Self.T_TocKy" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__T_KhoThie__MaKho__34C8D9D1" Association="Self.FK__T_KhoThie__MaKho__34C8D9D1">
+            <End Role="T_KhoaPhong" EntitySet="T_KhoaPhong" />
+            <End Role="T_KhoThietBi" EntitySet="T_KhoThietBi" />
+          </AssociationSet>
           <AssociationSet Name="FK__T_NhanVie__MaKho__0BC6C43E" Association="Self.FK__T_NhanVie__MaKho__0BC6C43E">
             <End Role="T_KhoaPhong" EntitySet="T_KhoaPhong" />
             <End Role="T_NhanVien" EntitySet="T_NhanVien" />
@@ -198,7 +237,23 @@
             <End Role="T_PhieuKham" EntitySet="T_PhieuKham" />
           </AssociationSet>
           <FunctionImport Name="P_DanhSachSucKhoeNhanVien" ReturnType="Collection(QuanLyNhanVien.Models.P_DanhSachSucKhoeNhanVien_Result)">
-            <Parameter Name="NamKham" Mode="In" Type="String" />
+          <Parameter Name="NamKham" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="P_DanhSachKhoThietBi" ReturnType="Collection(QuanLyNhanVien.Models.P_DanhSachKhoThietBi_Result)" />
+          <EntitySet Name="T_KhoThietBi" EntityType="QuanLyNhanVien.Models.T_KhoThietBi" />
+          <AssociationSet Name="FK__T_KhoThie__MaKho__34C8D9D1" Association="QuanLyNhanVien.Models.FK__T_KhoThie__MaKho__34C8D9D1">
+            <End Role="T_KhoaPhong" EntitySet="T_KhoaPhong" />
+            <End Role="T_KhoThietBi" EntitySet="T_KhoThietBi" />
+          </AssociationSet>
+          <FunctionImport Name="P_InsertKho">
+            <Parameter Name="MaKhoa" Mode="In" Type="String" />
+            <Parameter Name="TenKho" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="P_UpdateKho">
+            <Parameter Name="MaKho" Mode="In" Type="Int32" />
+            <Parameter Name="MaKhoa" Mode="In" Type="String" />
+            <Parameter Name="TenKho" Mode="In" Type="String" />
+            <Parameter Name="KyHieu" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="P_DanhSachKhoaPhong_Result">
@@ -260,6 +315,7 @@
           <Property Name="MaKhoa" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
           <Property Name="TenKhoa" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="T_NhanVien" Relationship="QuanLyNhanVien.Models.FK__T_NhanVie__MaKho__0BC6C43E" FromRole="T_KhoaPhong" ToRole="T_NhanVien" />
+          <NavigationProperty Name="T_KhoThietBi" Relationship="QuanLyNhanVien.Models.FK__T_KhoThie__MaKho__34C8D9D1" FromRole="T_KhoaPhong" ToRole="T_KhoThietBi" />
         </EntityType>
         <Association Name="FK__T_NhanVie__MaKho__0BC6C43E">
           <End Type="QuanLyNhanVien.Models.T_KhoaPhong" Role="T_KhoaPhong" Multiplicity="1" />
@@ -407,6 +463,38 @@
           <Property Type="String" Name="KL_DatSucKhoeLoai" Nullable="true" MaxLength="100" />
           <Property Type="Boolean" Name="KL_DuDieuKienSucKhoe" Nullable="true" />
         </ComplexType>
+        <ComplexType Name="P_DanhSachKhoThietBi_Result">
+          <Property Type="Int32" Name="MaKho" Nullable="false" />
+          <Property Type="String" Name="TenKho" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="MaKhoa" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="TenKhoa" Nullable="true" MaxLength="205" />
+          <Property Type="Int32" Name="STT" Nullable="true" />
+          <Property Type="String" Name="KyHieu" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <EntityType Name="T_KhoThietBi">
+          <Key>
+            <PropertyRef Name="MaKho" />
+          </Key>
+          <Property Name="MaKho" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaKhoa" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="TenKho" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="KyHieu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="STT" Type="Int32" />
+          <Property Name="IsEnable" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="T_KhoaPhong" Relationship="QuanLyNhanVien.Models.FK__T_KhoThie__MaKho__34C8D9D1" FromRole="T_KhoThietBi" ToRole="T_KhoaPhong" />
+        </EntityType>
+        <Association Name="FK__T_KhoThie__MaKho__34C8D9D1">
+          <End Type="QuanLyNhanVien.Models.T_KhoaPhong" Role="T_KhoaPhong" Multiplicity="1" />
+          <End Type="QuanLyNhanVien.Models.T_KhoThietBi" Role="T_KhoThietBi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_KhoaPhong">
+              <PropertyRef Name="MaKhoa" />
+            </Principal>
+            <Dependent Role="T_KhoThietBi">
+              <PropertyRef Name="MaKhoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -607,6 +695,32 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="P_DanhSachKhoThietBi" FunctionName="QuanLyNhanVien.Models.Store.P_DanhSachKhoThietBi">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QuanLyNhanVien.Models.P_DanhSachKhoThietBi_Result">
+                <ScalarProperty Name="MaKho" ColumnName="MaKho" />
+                <ScalarProperty Name="TenKho" ColumnName="TenKho" />
+                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
+                <ScalarProperty Name="TenKhoa" ColumnName="TenKhoa" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="KyHieu" ColumnName="KyHieu" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="T_KhoThietBi">
+            <EntityTypeMapping TypeName="QuanLyNhanVien.Models.T_KhoThietBi">
+              <MappingFragment StoreEntitySet="T_KhoThietBi">
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="KyHieu" ColumnName="KyHieu" />
+                <ScalarProperty Name="TenKho" ColumnName="TenKho" />
+                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
+                <ScalarProperty Name="MaKho" ColumnName="MaKho" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="P_InsertKho" FunctionName="QuanLyNhanVien.Models.Store.P_InsertKho" />
+          <FunctionImportMapping FunctionImportName="P_UpdateKho" FunctionName="QuanLyNhanVien.Models.Store.P_UpdateKho" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

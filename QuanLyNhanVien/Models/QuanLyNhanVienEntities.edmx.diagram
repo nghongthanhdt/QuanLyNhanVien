@@ -11,6 +11,8 @@
         <AssociationConnector Association="QuanLyNhanVien.Models.FK__T_NhanVie__MaKho__0BC6C43E" />
         <EntityTypeShape EntityType="QuanLyNhanVien.Models.T_PhieuKham" Width="1.5" PointX="5.25" PointY="1" />
         <AssociationConnector Association="QuanLyNhanVien.Models.FK__T_PhieuKh__MaNha__0CBAE877" />
+        <EntityTypeShape EntityType="QuanLyNhanVien.Models.T_KhoThietBi" Width="1.5" PointX="3" PointY="13.125" />
+        <AssociationConnector Association="QuanLyNhanVien.Models.FK__T_KhoThie__MaKho__34C8D9D1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

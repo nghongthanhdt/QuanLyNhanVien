@@ -68,5 +68,27 @@ namespace QuanLyNhanVien
                 f.Show();
             }
         }
+
+        private void menuDanhSachKhoThietBi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            bool IsOpen = false;
+            foreach (Form myForm in Application.OpenForms)
+            {
+                if (myForm.Name == "FormKhoThietBi")
+                {
+                    IsOpen = true;
+                    myForm.Focus();
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                FormKhoThietBi f = new FormKhoThietBi();
+                f.Name = "FormKhoThietBi";
+                f.Text = "Danh mục kho";
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

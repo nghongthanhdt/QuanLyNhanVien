@@ -8,6 +8,17 @@
     <Property Name="MaKhoa" Type="nvarchar" MaxLength="2" Nullable="false" />
     <Property Name="TenKhoa" Type="nvarchar" MaxLength="200" Nullable="false" />
   </EntityType>
+  <EntityType Name="T_KhoThietBi">
+    <Key>
+      <PropertyRef Name="MaKho" />
+    </Key>
+    <Property Name="MaKho" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaKhoa" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="TenKho" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="KyHieu" Type="nvarchar" MaxLength="10" />
+    <Property Name="STT" Type="int" />
+    <Property Name="IsEnable" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="T_NhanVien">
     <Key>
       <PropertyRef Name="MaNhanVien" />
@@ -130,6 +141,18 @@
     <Property Name="KyHieu" Type="nvarchar" MaxLength="50" />
     <Property Name="NoiDung" Type="nvarchar" MaxLength="500" />
   </EntityType>
+  <Association Name="FK__T_KhoThie__MaKho__34C8D9D1">
+    <End Role="T_KhoaPhong" Type="Self.T_KhoaPhong" Multiplicity="1" />
+    <End Role="T_KhoThietBi" Type="Self.T_KhoThietBi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_KhoaPhong">
+        <PropertyRef Name="MaKhoa" />
+      </Principal>
+      <Dependent Role="T_KhoThietBi">
+        <PropertyRef Name="MaKhoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__T_NhanVie__MaKho__0BC6C43E">
     <End Role="T_KhoaPhong" Type="Self.T_KhoaPhong" Multiplicity="1" />
     <End Role="T_NhanVien" Type="Self.T_NhanVien" Multiplicity="*" />
@@ -155,15 +178,31 @@
     </ReferentialConstraint>
   </Association>
   <Function Name="P_DanhSachKhoaPhong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="P_DanhSachKhoThietBi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="P_DanhSachNhanVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="P_DanhSachSucKhoeNhanVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="NamKham" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="P_InsertKho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaKhoa" Type="nvarchar" Mode="In" />
+    <Parameter Name="TenKho" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="P_UpdateKho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaKho" Type="int" Mode="In" />
+    <Parameter Name="MaKhoa" Type="nvarchar" Mode="In" />
+    <Parameter Name="TenKho" Type="nvarchar" Mode="In" />
+    <Parameter Name="KyHieu" Type="nvarchar" Mode="In" />
+  </Function>
   <EntityContainer Name="QuanLyNhanVienModelsStoreContainer">
     <EntitySet Name="T_KhoaPhong" EntityType="Self.T_KhoaPhong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_KhoThietBi" EntityType="Self.T_KhoThietBi" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_NhanVien" EntityType="Self.T_NhanVien" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_PhieuKham" EntityType="Self.T_PhieuKham" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_TocKy" EntityType="Self.T_TocKy" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__T_KhoThie__MaKho__34C8D9D1" Association="Self.FK__T_KhoThie__MaKho__34C8D9D1">
+      <End Role="T_KhoaPhong" EntitySet="T_KhoaPhong" />
+      <End Role="T_KhoThietBi" EntitySet="T_KhoThietBi" />
+    </AssociationSet>
     <AssociationSet Name="FK__T_NhanVie__MaKho__0BC6C43E" Association="Self.FK__T_NhanVie__MaKho__0BC6C43E">
       <End Role="T_KhoaPhong" EntitySet="T_KhoaPhong" />
       <End Role="T_NhanVien" EntitySet="T_NhanVien" />

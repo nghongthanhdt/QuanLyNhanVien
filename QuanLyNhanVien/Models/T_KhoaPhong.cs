@@ -18,6 +18,7 @@ namespace QuanLyNhanVien.Models
         public T_KhoaPhong()
         {
             this.T_NhanVien = new HashSet<T_NhanVien>();
+            this.T_KhoThietBi = new HashSet<T_KhoThietBi>();
         }
     
         public string STT { get; set; }
@@ -26,5 +27,7 @@ namespace QuanLyNhanVien.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_NhanVien> T_NhanVien { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_KhoThietBi> T_KhoThietBi { get; set; }
     }
 }

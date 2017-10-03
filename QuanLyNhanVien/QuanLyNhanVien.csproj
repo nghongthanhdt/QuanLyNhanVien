@@ -148,6 +148,12 @@
     <Compile Include="App_Forms\FormCopyPhieuKham.Designer.cs">
       <DependentUpon>FormCopyPhieuKham.cs</DependentUpon>
     </Compile>
+    <Compile Include="App_Forms\FormKhoThietBi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App_Forms\FormKhoThietBi.Designer.cs">
+      <DependentUpon>FormKhoThietBi.cs</DependentUpon>
+    </Compile>
     <Compile Include="App_Forms\FormNgayKham.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,9 @@
     <Compile Include="Models\P_DanhSachKhoaPhong_Result.cs">
       <DependentUpon>QuanLyNhanVienEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\P_DanhSachKhoThietBi_Result.cs">
+      <DependentUpon>QuanLyNhanVienEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\P_DanhSachNhanVien_Result.cs">
       <DependentUpon>QuanLyNhanVienEntities.tt</DependentUpon>
     </Compile>
@@ -236,6 +245,9 @@
     <Compile Include="Models\T_KhoaPhong.cs">
       <DependentUpon>QuanLyNhanVienEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\T_KhoThietBi.cs">
+      <DependentUpon>QuanLyNhanVienEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\T_NhanVien.cs">
       <DependentUpon>QuanLyNhanVienEntities.tt</DependentUpon>
     </Compile>
@@ -257,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="App_Forms\FormCopyPhieuKham.resx">
       <DependentUpon>FormCopyPhieuKham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_Forms\FormKhoThietBi.resx">
+      <DependentUpon>FormKhoThietBi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="App_Forms\FormNgayKham.resx">
       <DependentUpon>FormNgayKham.cs</DependentUpon>
