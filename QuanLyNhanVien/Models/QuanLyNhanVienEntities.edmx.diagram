@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="22b148a6fdaf4aeaa08cb9df259d281a" Name="Diagram1" ZoomLevel="93">
-        <EntityTypeShape EntityType="QuanLyNhanVien.Models.T_TocKy" Width="1.5" PointX="1.75" PointY="1.875" />
+        <EntityTypeShape EntityType="QuanLyNhanVien.Models.T_TocKy" Width="1.5" PointX="1.25" PointY="2.625" />
         <EntityTypeShape EntityType="QuanLyNhanVien.Models.T_NhanVien" Width="1.5" PointX="3" PointY="6.5" />
         <EntityTypeShape EntityType="QuanLyNhanVien.Models.T_KhoaPhong" Width="1.5" PointX="0.75" PointY="8.375" />
         <AssociationConnector Association="QuanLyNhanVien.Models.FK__T_NhanVie__MaKho__0BC6C43E" />
@@ -13,6 +13,7 @@
         <AssociationConnector Association="QuanLyNhanVien.Models.FK__T_PhieuKh__MaNha__0CBAE877" />
         <EntityTypeShape EntityType="QuanLyNhanVien.Models.T_KhoThietBi" Width="1.5" PointX="3" PointY="13.125" />
         <AssociationConnector Association="QuanLyNhanVien.Models.FK__T_KhoThie__MaKho__34C8D9D1" />
+        <EntityTypeShape EntityType="QuanLyNhanVien.Models.T_Lib_ThietBi" Width="1.5" PointX="3.375" PointY="0.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

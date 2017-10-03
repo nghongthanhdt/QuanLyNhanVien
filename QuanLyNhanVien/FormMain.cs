@@ -90,5 +90,27 @@ namespace QuanLyNhanVien
                 f.Show();
             }
         }
+
+        private void menudanhSachVanPhongPham_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            bool IsOpen = false;
+            foreach (Form myForm in Application.OpenForms)
+            {
+                if (myForm.Name == "FormDanhMucVanPhongPham")
+                {
+                    IsOpen = true;
+                    myForm.Focus();
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                FormDanhMucVanPhongPham f = new FormDanhMucVanPhongPham();
+                f.Name = "FormDanhMucVanPhongPham";
+                f.Text = "Danh mục Văn phòng phẩm";
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

@@ -19,6 +19,16 @@
     <Property Name="STT" Type="int" />
     <Property Name="IsEnable" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="T_Lib_ThietBi">
+    <Key>
+      <PropertyRef Name="MaThietBi" />
+    </Key>
+    <Property Name="MaThietBi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenThietBi" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="DonVi" Type="nvarchar" MaxLength="50" />
+    <Property Name="KyHieu" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsEnable" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="T_NhanVien">
     <Key>
       <PropertyRef Name="MaNhanVien" />
@@ -196,6 +206,7 @@
   <EntityContainer Name="QuanLyNhanVienModelsStoreContainer">
     <EntitySet Name="T_KhoaPhong" EntityType="Self.T_KhoaPhong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_KhoThietBi" EntityType="Self.T_KhoThietBi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Lib_ThietBi" EntityType="Self.T_Lib_ThietBi" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_NhanVien" EntityType="Self.T_NhanVien" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_PhieuKham" EntityType="Self.T_PhieuKham" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_TocKy" EntityType="Self.T_TocKy" Schema="dbo" store:Type="Tables" />

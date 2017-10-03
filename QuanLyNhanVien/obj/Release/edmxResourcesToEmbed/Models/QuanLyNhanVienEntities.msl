@@ -221,5 +221,16 @@
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="P_InsertKho" FunctionName="QuanLyNhanVien.Models.Store.P_InsertKho" />
     <FunctionImportMapping FunctionImportName="P_UpdateKho" FunctionName="QuanLyNhanVien.Models.Store.P_UpdateKho" />
+    <EntitySetMapping Name="T_Lib_ThietBi">
+      <EntityTypeMapping TypeName="QuanLyNhanVien.Models.T_Lib_ThietBi">
+        <MappingFragment StoreEntitySet="T_Lib_ThietBi">
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+          <ScalarProperty Name="KyHieu" ColumnName="KyHieu" />
+          <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+          <ScalarProperty Name="TenThietBi" ColumnName="TenThietBi" />
+          <ScalarProperty Name="MaThietBi" ColumnName="MaThietBi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

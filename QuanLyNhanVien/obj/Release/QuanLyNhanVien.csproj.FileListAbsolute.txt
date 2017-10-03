@@ -399,3 +399,4 @@ D:\_Developer\QuanLyNhanVien\QuanLyNhanVien\bin\Release\DevExpress.Images.v16.1.
 D:\_Developer\QuanLyNhanVien\QuanLyNhanVien\obj\Release\QuanLyNhanVien.App_Forms.SplashScreenSaveOK.resources
 D:\_Developer\QuanLyNhanVien\QuanLyNhanVien\obj\Release\QuanLyNhanVien.App_Forms.WaitFormLoading.resources
 D:\_Developer\QuanLyNhanVien\QuanLyNhanVien\obj\Release\QuanLyNhanVien.App_Forms.FormKhoThietBi.resources
+D:\_Developer\QuanLyNhanVien\QuanLyNhanVien\obj\Release\QuanLyNhanVien.App_Forms.FormDanhMucVanPhongPham.resources

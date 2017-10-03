@@ -36,16 +36,16 @@
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.menuBaoCaoSucKhoe = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.menuDanhSachKhoThietBi = new DevExpress.XtraBars.BarButtonItem();
             this.menudanhSachVanPhongPham = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.menuNhapKho = new DevExpress.XtraBars.BarButtonItem();
             this.menuPhatVanPhongPham = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -115,39 +115,6 @@
             this.barButtonItem5.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.LargeGlyph")));
             this.barButtonItem5.Name = "barButtonItem5";
             // 
-            // ribbonPage1
-            // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "Hệ thống";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.menuNhanVien);
-            this.ribbonPageGroup1.ItemLinks.Add(this.menuBaoCaoSucKhoe);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Danh mục";
-            // 
-            // xtraTabbedMdiManager1
-            // 
-            this.xtraTabbedMdiManager1.MdiParent = this;
-            // 
-            // ribbonPage2
-            // 
-            this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup2,
-            this.ribbonPageGroup3});
-            this.ribbonPage2.Name = "ribbonPage2";
-            this.ribbonPage2.Text = "Phòng tổ chức";
-            // 
-            // ribbonPageGroup2
-            // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.menuDanhSachKhoThietBi);
-            this.ribbonPageGroup2.ItemLinks.Add(this.menudanhSachVanPhongPham);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "Danh mục";
-            // 
             // menuDanhSachKhoThietBi
             // 
             this.menuDanhSachKhoThietBi.Caption = "Kho";
@@ -164,13 +131,7 @@
             this.menudanhSachVanPhongPham.Id = 7;
             this.menudanhSachVanPhongPham.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("menudanhSachVanPhongPham.LargeGlyph")));
             this.menudanhSachVanPhongPham.Name = "menudanhSachVanPhongPham";
-            // 
-            // ribbonPageGroup3
-            // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.menuNhapKho);
-            this.ribbonPageGroup3.ItemLinks.Add(this.menuPhatVanPhongPham);
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.Text = "Quản lý văn phòng phẩm";
+            this.menudanhSachVanPhongPham.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.menudanhSachVanPhongPham_ItemClick);
             // 
             // menuNhapKho
             // 
@@ -187,6 +148,46 @@
             this.menuPhatVanPhongPham.Id = 9;
             this.menuPhatVanPhongPham.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("menuPhatVanPhongPham.LargeGlyph")));
             this.menuPhatVanPhongPham.Name = "menuPhatVanPhongPham";
+            // 
+            // ribbonPage1
+            // 
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "Hệ thống";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.menuNhanVien);
+            this.ribbonPageGroup1.ItemLinks.Add(this.menuBaoCaoSucKhoe);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Danh mục";
+            // 
+            // ribbonPage2
+            // 
+            this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup2,
+            this.ribbonPageGroup3});
+            this.ribbonPage2.Name = "ribbonPage2";
+            this.ribbonPage2.Text = "Phòng tổ chức";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.menuDanhSachKhoThietBi);
+            this.ribbonPageGroup2.ItemLinks.Add(this.menudanhSachVanPhongPham);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "Danh mục";
+            // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.menuNhapKho);
+            this.ribbonPageGroup3.ItemLinks.Add(this.menuPhatVanPhongPham);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.Text = "Quản lý văn phòng phẩm";
+            // 
+            // xtraTabbedMdiManager1
+            // 
+            this.xtraTabbedMdiManager1.MdiParent = this;
             // 
             // FormMain
             // 

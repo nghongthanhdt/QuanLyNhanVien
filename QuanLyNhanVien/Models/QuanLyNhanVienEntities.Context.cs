@@ -32,6 +32,7 @@ namespace QuanLyNhanVien.Models
         public virtual DbSet<T_KhoaPhong> T_KhoaPhong { get; set; }
         public virtual DbSet<T_PhieuKham> T_PhieuKham { get; set; }
         public virtual DbSet<T_KhoThietBi> T_KhoThietBi { get; set; }
+        public virtual DbSet<T_Lib_ThietBi> T_Lib_ThietBi { get; set; }
     
         public virtual ObjectResult<P_DanhSachKhoaPhong_Result> P_DanhSachKhoaPhong()
         {

@@ -34,6 +34,7 @@
       <Parameter Name="TenKho" Mode="In" Type="String" />
       <Parameter Name="KyHieu" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="T_Lib_ThietBi" EntityType="QuanLyNhanVien.Models.T_Lib_ThietBi" />
   </EntityContainer>
   <ComplexType Name="P_DanhSachKhoaPhong_Result">
     <Property Type="String" Name="MaKhoa" Nullable="false" MaxLength="2" />
@@ -274,4 +275,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="T_Lib_ThietBi">
+    <Key>
+      <PropertyRef Name="MaThietBi" />
+    </Key>
+    <Property Name="MaThietBi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenThietBi" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KyHieu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsEnable" Type="Boolean" Nullable="false" />
+  </EntityType>
 </Schema>

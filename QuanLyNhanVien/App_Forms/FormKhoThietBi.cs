@@ -113,11 +113,13 @@ namespace QuanLyNhanVien.App_Forms
             if (gvKhoThietBi.FocusedRowHandle >= 0)
             {
                 string maKho = gvKhoThietBi.GetFocusedRowCellValue("MaKho").ToString();
+                string maKhoa = gvKhoThietBi.GetFocusedRowCellValue("MaKhoa").ToString();
                 string tenKho = gvKhoThietBi.GetFocusedRowCellValue("TenKho").ToString();
                 string kyHieu = gvKhoThietBi.GetFocusedRowCellValue("KyHieu").ToString();
                 txtMaKho.Text = maKho;
                 txtKyHieu.Text = kyHieu;
                 txtTenKho.Text = tenKho;
+                selectKhoaPhong.EditValue = maKhoa;
             } else
             {
                 resetFormKhoThietBi();
@@ -127,7 +129,7 @@ namespace QuanLyNhanVien.App_Forms
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (gvKhoThietBi.FocusedRowHandle < 0)
+            if (txtMaKho.Text == "")
             {
                 MessageBox.Show("Chưa chọn kho cần xóa");
                 return;
@@ -145,7 +147,7 @@ namespace QuanLyNhanVien.App_Forms
                     resetFormKhoThietBi();
                 } catch (Exception ex) 
                 {
-                    MessageBox.Show("Kho đã có các phiếu nhập, vui lòng xóa các phiếu nhập trước");
+                    MessageBox.Show("Kho đang được sử dụng, không thể xóa");
                 }
             }
         }
