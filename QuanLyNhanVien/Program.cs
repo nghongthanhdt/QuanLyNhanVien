@@ -27,7 +27,7 @@ namespace QuanLyNhanVien
 
 
             SplashScreenMain.ShowSplashScreen();
-            FormMain mainForm = new FormMain(); //this takes ages
+            FormDanhSachPhieuNhap mainForm = new FormDanhSachPhieuNhap(); //this takes ages
             Thread.Sleep(2000);
             SplashScreenMain.CloseForm();
             Thread.Sleep(500);

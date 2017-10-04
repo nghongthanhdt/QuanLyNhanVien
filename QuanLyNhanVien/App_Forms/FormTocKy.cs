@@ -91,5 +91,10 @@ namespace QuanLyNhanVien.App_Forms
             }
             btnDong.PerformClick();           
         }
+
+        private void gcTocKy_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

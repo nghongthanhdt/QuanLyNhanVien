@@ -83,6 +83,7 @@
     <Reference Include="DevExpress.Printing.v16.1.Core" />
     <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.RichEdit.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v16.1" />
     <Reference Include="DevExpress.Utils.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -90,15 +91,17 @@
     <Reference Include="DevExpress.Xpo.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v16.1" />
     <Reference Include="DevExpress.Sparkline.v16.1.Core" />
+    <Reference Include="DevExpress.XtraCharts.v16.1.Wizard, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v16.1" />
-    <Reference Include="DevExpress.XtraEditors.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGauges.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraLayout.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.CodeParser.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v16.1.Extensions, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -154,6 +157,12 @@
     <Compile Include="App_Forms\FormDanhMucVanPhongPham.Designer.cs">
       <DependentUpon>FormDanhMucVanPhongPham.cs</DependentUpon>
     </Compile>
+    <Compile Include="App_Forms\FormDanhSachPhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App_Forms\FormDanhSachPhieuNhap.Designer.cs">
+      <DependentUpon>FormDanhSachPhieuNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="App_Forms\FormKhoThietBi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +186,12 @@
     </Compile>
     <Compile Include="App_Forms\FormPhieuKham.Designer.cs">
       <DependentUpon>FormPhieuKham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App_Forms\FormPhieuNhapKhoThemThietBi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App_Forms\FormPhieuNhapKhoThemThietBi.Designer.cs">
+      <DependentUpon>FormPhieuNhapKhoThemThietBi.cs</DependentUpon>
     </Compile>
     <Compile Include="App_Forms\FormTocKy.cs">
       <SubType>Form</SubType>
@@ -282,6 +297,9 @@
     <EmbeddedResource Include="App_Forms\FormDanhMucVanPhongPham.resx">
       <DependentUpon>FormDanhMucVanPhongPham.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="App_Forms\FormDanhSachPhieuNhap.resx">
+      <DependentUpon>FormDanhSachPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="App_Forms\FormKhoThietBi.resx">
       <DependentUpon>FormKhoThietBi.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="App_Forms\FormPhieuKham.resx">
       <DependentUpon>FormPhieuKham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_Forms\FormPhieuNhapKhoThemThietBi.resx">
+      <DependentUpon>FormPhieuNhapKhoThemThietBi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="App_Forms\FormTocKy.resx">
       <DependentUpon>FormTocKy.cs</DependentUpon>

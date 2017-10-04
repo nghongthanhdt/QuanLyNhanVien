@@ -1783,14 +1783,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QuanLyNhanVien.exe" size="765416">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QuanLyNhanVien.exe" size="802792">
       <assemblyIdentity name="QuanLyNhanVien" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Za+OGSYvv2Psk/X6g1uzu8LVuAid9GKr65ExxGgdkYo=</dsig:DigestValue>
+        <dsig:DigestValue>sxxnqaNhIZGu8e1ad+3S0/J9BIfEwOJOAxaWp4SiSyg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

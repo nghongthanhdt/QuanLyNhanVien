@@ -112,6 +112,7 @@ namespace QuanLyNhanVien.App_Forms
             this.gcTocKy.TabIndex = 1;
             this.gcTocKy.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvTocKy});
+            this.gcTocKy.Click += new System.EventHandler(this.gcTocKy_Click);
             // 
             // gvTocKy
             // 
