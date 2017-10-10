@@ -69,6 +69,28 @@
       <End Role="T_ChucNang" EntitySet="T_ChucNang" />
       <End Role="T_NguoiDung" EntitySet="T_NguoiDung" />
     </AssociationSet>
+    <EntitySet Name="T_PhieuLanh" EntityType="QuanLyNhanVien.Models.T_PhieuLanh" />
+    <AssociationSet Name="FK__T_PhieuLa__MaKho__3A4CA8FD" Association="QuanLyNhanVien.Models.FK__T_PhieuLa__MaKho__3A4CA8FD">
+      <End Role="T_KhoThietBi" EntitySet="T_KhoThietBi" />
+      <End Role="T_PhieuLanh" EntitySet="T_PhieuLanh" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_PhieuLa__MaNgu__395884C4" Association="QuanLyNhanVien.Models.FK__T_PhieuLa__MaNgu__395884C4">
+      <End Role="T_NguoiDung" EntitySet="T_NguoiDung" />
+      <End Role="T_PhieuLanh" EntitySet="T_PhieuLanh" />
+    </AssociationSet>
+    <FunctionImport Name="P_DanhSachPhieuLanh" ReturnType="Collection(QuanLyNhanVien.Models.P_DanhSachPhieuLanh_Result)">
+      <Parameter Name="Thang" Mode="In" Type="Int32" />
+      <Parameter Name="Nam" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="T_PhieuLanh_ChiTiet" EntityType="QuanLyNhanVien.Models.T_PhieuLanh_ChiTiet" />
+    <AssociationSet Name="FK__T_PhieuLa__MaThi__4A8310C6" Association="QuanLyNhanVien.Models.FK__T_PhieuLa__MaThi__4A8310C6">
+      <End Role="T_Lib_ThietBi" EntitySet="T_Lib_ThietBi" />
+      <End Role="T_PhieuLanh_ChiTiet" EntitySet="T_PhieuLanh_ChiTiet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_PhieuLa__MaPhi__498EEC8D" Association="QuanLyNhanVien.Models.FK__T_PhieuLa__MaPhi__498EEC8D">
+      <End Role="T_PhieuLanh" EntitySet="T_PhieuLanh" />
+      <End Role="T_PhieuLanh_ChiTiet" EntitySet="T_PhieuLanh_ChiTiet" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="P_DanhSachKhoaPhong_Result">
     <Property Type="String" Name="MaKhoa" Nullable="false" MaxLength="2" />
@@ -298,6 +320,7 @@
     <Property Name="IsEnable" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="T_KhoaPhong" Relationship="QuanLyNhanVien.Models.FK__T_KhoThie__MaKho__34C8D9D1" FromRole="T_KhoThietBi" ToRole="T_KhoaPhong" />
     <NavigationProperty Name="T_PhieuNhap" Relationship="QuanLyNhanVien.Models.FK__T_PhieuNh__MaKho__6754599E" FromRole="T_KhoThietBi" ToRole="T_PhieuNhap" />
+    <NavigationProperty Name="T_PhieuLanh" Relationship="QuanLyNhanVien.Models.FK__T_PhieuLa__MaKho__3A4CA8FD" FromRole="T_KhoThietBi" ToRole="T_PhieuLanh" />
   </EntityType>
   <Association Name="FK__T_KhoThie__MaKho__34C8D9D1">
     <End Type="QuanLyNhanVien.Models.T_KhoaPhong" Role="T_KhoaPhong" Multiplicity="1" />
@@ -320,6 +343,7 @@
     <Property Name="DonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="KyHieu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="IsEnable" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="T_PhieuLanh_ChiTiet" Relationship="QuanLyNhanVien.Models.FK__T_PhieuLa__MaThi__4A8310C6" FromRole="T_Lib_ThietBi" ToRole="T_PhieuLanh_ChiTiet" />
   </EntityType>
   <EntityType Name="T_PhieuNhap">
     <Key>
@@ -414,6 +438,7 @@
     <Property Name="MatKhau" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="T_KhoaPhong" Relationship="QuanLyNhanVien.Models.FK__T_NguoiDu__MaKho__31B762FC" FromRole="T_NguoiDung" ToRole="T_KhoaPhong" />
     <NavigationProperty Name="T_ChucNang" Relationship="QuanLyNhanVien.Models.T_NguoiDung_ChucNang" FromRole="T_NguoiDung" ToRole="T_ChucNang" />
+    <NavigationProperty Name="T_PhieuLanh" Relationship="QuanLyNhanVien.Models.FK__T_PhieuLa__MaNgu__395884C4" FromRole="T_NguoiDung" ToRole="T_PhieuLanh" />
   </EntityType>
   <Association Name="FK__T_NguoiDu__MaKho__31B762FC">
     <End Type="QuanLyNhanVien.Models.T_KhoaPhong" Role="T_KhoaPhong" Multiplicity="0..1" />
@@ -430,5 +455,92 @@
   <Association Name="T_NguoiDung_ChucNang">
     <End Type="QuanLyNhanVien.Models.T_ChucNang" Role="T_ChucNang" Multiplicity="*" />
     <End Type="QuanLyNhanVien.Models.T_NguoiDung" Role="T_NguoiDung" Multiplicity="*" />
+  </Association>
+  <EntityType Name="T_PhieuLanh">
+    <Key>
+      <PropertyRef Name="MaPhieuLanh" />
+    </Key>
+    <Property Name="MaPhieuLanh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaKho" Type="Int32" Nullable="false" />
+    <Property Name="MaNguoiDung" Type="Int32" Nullable="false" />
+    <Property Name="SoPhieu" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="NgayLuu" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NgayDuyet" Type="DateTime" Precision="3" />
+    <Property Name="NgayPhat" Type="DateTime" Precision="3" />
+    <Property Name="ChoDuyet" Type="Boolean" Nullable="false" />
+    <Property Name="DaDuyet" Type="Boolean" Nullable="false" />
+    <Property Name="DaPhat" Type="Boolean" Nullable="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="STT" Type="Int32" />
+    <Property Name="Thang" Type="Int16" Nullable="false" />
+    <Property Name="Nam" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="T_KhoThietBi" Relationship="QuanLyNhanVien.Models.FK__T_PhieuLa__MaKho__3A4CA8FD" FromRole="T_PhieuLanh" ToRole="T_KhoThietBi" />
+    <NavigationProperty Name="T_NguoiDung" Relationship="QuanLyNhanVien.Models.FK__T_PhieuLa__MaNgu__395884C4" FromRole="T_PhieuLanh" ToRole="T_NguoiDung" />
+    <NavigationProperty Name="T_PhieuLanh_ChiTiet" Relationship="QuanLyNhanVien.Models.FK__T_PhieuLa__MaPhi__498EEC8D" FromRole="T_PhieuLanh" ToRole="T_PhieuLanh_ChiTiet" />
+  </EntityType>
+  <Association Name="FK__T_PhieuLa__MaKho__3A4CA8FD">
+    <End Type="QuanLyNhanVien.Models.T_KhoThietBi" Role="T_KhoThietBi" Multiplicity="1" />
+    <End Type="QuanLyNhanVien.Models.T_PhieuLanh" Role="T_PhieuLanh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_KhoThietBi">
+        <PropertyRef Name="MaKho" />
+      </Principal>
+      <Dependent Role="T_PhieuLanh">
+        <PropertyRef Name="MaKho" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_PhieuLa__MaNgu__395884C4">
+    <End Type="QuanLyNhanVien.Models.T_NguoiDung" Role="T_NguoiDung" Multiplicity="1" />
+    <End Type="QuanLyNhanVien.Models.T_PhieuLanh" Role="T_PhieuLanh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_NguoiDung">
+        <PropertyRef Name="MaNguoiDung" />
+      </Principal>
+      <Dependent Role="T_PhieuLanh">
+        <PropertyRef Name="MaNguoiDung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="P_DanhSachPhieuLanh_Result">
+    <Property Type="Int32" Name="MaPhieuLanh" Nullable="false" />
+    <Property Type="String" Name="SoPhieu" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Thang" Nullable="true" MaxLength="41" />
+  </ComplexType>
+  <EntityType Name="T_PhieuLanh_ChiTiet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPhieuLanh" Type="Int32" Nullable="false" />
+    <Property Name="MaThietBi" Type="Int32" Nullable="false" />
+    <Property Name="SoLuong" Type="Decimal" Nullable="false" Precision="18" Scale="5" />
+    <NavigationProperty Name="T_Lib_ThietBi" Relationship="QuanLyNhanVien.Models.FK__T_PhieuLa__MaThi__4A8310C6" FromRole="T_PhieuLanh_ChiTiet" ToRole="T_Lib_ThietBi" />
+    <NavigationProperty Name="T_PhieuLanh" Relationship="QuanLyNhanVien.Models.FK__T_PhieuLa__MaPhi__498EEC8D" FromRole="T_PhieuLanh_ChiTiet" ToRole="T_PhieuLanh" />
+  </EntityType>
+  <Association Name="FK__T_PhieuLa__MaThi__4A8310C6">
+    <End Type="QuanLyNhanVien.Models.T_Lib_ThietBi" Role="T_Lib_ThietBi" Multiplicity="1" />
+    <End Type="QuanLyNhanVien.Models.T_PhieuLanh_ChiTiet" Role="T_PhieuLanh_ChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Lib_ThietBi">
+        <PropertyRef Name="MaThietBi" />
+      </Principal>
+      <Dependent Role="T_PhieuLanh_ChiTiet">
+        <PropertyRef Name="MaThietBi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_PhieuLa__MaPhi__498EEC8D">
+    <End Type="QuanLyNhanVien.Models.T_PhieuLanh" Role="T_PhieuLanh" Multiplicity="1" />
+    <End Type="QuanLyNhanVien.Models.T_PhieuLanh_ChiTiet" Role="T_PhieuLanh_ChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_PhieuLanh">
+        <PropertyRef Name="MaPhieuLanh" />
+      </Principal>
+      <Dependent Role="T_PhieuLanh_ChiTiet">
+        <PropertyRef Name="MaPhieuLanh" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
 </Schema>

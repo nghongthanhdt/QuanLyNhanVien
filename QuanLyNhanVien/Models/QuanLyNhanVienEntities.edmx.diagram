@@ -22,6 +22,12 @@
         <EntityTypeShape EntityType="QuanLyNhanVien.Models.T_NguoiDung" Width="1.5" PointX="8" PointY="8.25" />
         <AssociationConnector Association="QuanLyNhanVien.Models.FK__T_NguoiDu__MaKho__31B762FC" />
         <AssociationConnector Association="QuanLyNhanVien.Models.T_NguoiDung_ChucNang" />
+        <EntityTypeShape EntityType="QuanLyNhanVien.Models.T_PhieuLanh" Width="1.5" PointX="10.25" PointY="10" />
+        <AssociationConnector Association="QuanLyNhanVien.Models.FK__T_PhieuLa__MaKho__3A4CA8FD" />
+        <AssociationConnector Association="QuanLyNhanVien.Models.FK__T_PhieuLa__MaNgu__395884C4" />
+        <EntityTypeShape EntityType="QuanLyNhanVien.Models.T_PhieuLanh_ChiTiet" Width="1.5" PointX="12.5" PointY="13.5" />
+        <AssociationConnector Association="QuanLyNhanVien.Models.FK__T_PhieuLa__MaThi__4A8310C6" />
+        <AssociationConnector Association="QuanLyNhanVien.Models.FK__T_PhieuLa__MaPhi__498EEC8D" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

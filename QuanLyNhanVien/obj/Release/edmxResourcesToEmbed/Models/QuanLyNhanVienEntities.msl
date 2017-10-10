@@ -320,5 +320,45 @@
         <ScalarProperty Name="MaChucNang" ColumnName="MaChucNang" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="T_PhieuLanh">
+      <EntityTypeMapping TypeName="QuanLyNhanVien.Models.T_PhieuLanh">
+        <MappingFragment StoreEntitySet="T_PhieuLanh">
+          <ScalarProperty Name="Nam" ColumnName="Nam" />
+          <ScalarProperty Name="Thang" ColumnName="Thang" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="DaPhat" ColumnName="DaPhat" />
+          <ScalarProperty Name="DaDuyet" ColumnName="DaDuyet" />
+          <ScalarProperty Name="ChoDuyet" ColumnName="ChoDuyet" />
+          <ScalarProperty Name="NgayPhat" ColumnName="NgayPhat" />
+          <ScalarProperty Name="NgayDuyet" ColumnName="NgayDuyet" />
+          <ScalarProperty Name="NgayLuu" ColumnName="NgayLuu" />
+          <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+          <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+          <ScalarProperty Name="MaKho" ColumnName="MaKho" />
+          <ScalarProperty Name="MaPhieuLanh" ColumnName="MaPhieuLanh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="P_DanhSachPhieuLanh" FunctionName="QuanLyNhanVien.Models.Store.P_DanhSachPhieuLanh">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLyNhanVien.Models.P_DanhSachPhieuLanh_Result">
+          <ScalarProperty Name="MaPhieuLanh" ColumnName="MaPhieuLanh" />
+          <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="Thang" ColumnName="Thang" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="T_PhieuLanh_ChiTiet">
+      <EntityTypeMapping TypeName="QuanLyNhanVien.Models.T_PhieuLanh_ChiTiet">
+        <MappingFragment StoreEntitySet="T_PhieuLanh_ChiTiet">
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="MaThietBi" ColumnName="MaThietBi" />
+          <ScalarProperty Name="MaPhieuLanh" ColumnName="MaPhieuLanh" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

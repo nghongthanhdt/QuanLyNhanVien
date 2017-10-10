@@ -37,6 +37,8 @@ namespace QuanLyNhanVien.Models
         public virtual DbSet<T_PhieuNhap_ChiTiet> T_PhieuNhap_ChiTiet { get; set; }
         public virtual DbSet<T_ChucNang> T_ChucNang { get; set; }
         public virtual DbSet<T_NguoiDung> T_NguoiDung { get; set; }
+        public virtual DbSet<T_PhieuLanh> T_PhieuLanh { get; set; }
+        public virtual DbSet<T_PhieuLanh_ChiTiet> T_PhieuLanh_ChiTiet { get; set; }
     
         public virtual ObjectResult<P_DanhSachKhoaPhong_Result> P_DanhSachKhoaPhong()
         {
@@ -141,6 +143,19 @@ namespace QuanLyNhanVien.Models
                 new ObjectParameter("MaPhieuNhap", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<P_DanhSachChiTietPhieuNhap_Result>("P_DanhSachChiTietPhieuNhap", maPhieuNhapParameter);
+        }
+    
+        public virtual ObjectResult<P_DanhSachPhieuLanh_Result> P_DanhSachPhieuLanh(Nullable<int> thang, Nullable<int> nam)
+        {
+            var thangParameter = thang.HasValue ?
+                new ObjectParameter("Thang", thang) :
+                new ObjectParameter("Thang", typeof(int));
+    
+            var namParameter = nam.HasValue ?
+                new ObjectParameter("Nam", nam) :
+                new ObjectParameter("Nam", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<P_DanhSachPhieuLanh_Result>("P_DanhSachPhieuLanh", thangParameter, namParameter);
         }
     }
 }

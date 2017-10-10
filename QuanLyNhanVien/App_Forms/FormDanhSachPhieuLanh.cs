@@ -78,9 +78,12 @@ namespace QuanLyNhanVien.App_Forms
                     selectKhoaPhong.Enabled = true;
                 }
             }
-            
 
 
+            selectThang.SelectedIndex = 0;
+            selectNam.SelectedIndex = 0;
+
+            loadDanhSachPhieuLanh();
         }
 
         private void btnThemThietBi_Click(object sender, EventArgs e)
@@ -163,6 +166,97 @@ namespace QuanLyNhanVien.App_Forms
         private void windowsUIButtonPanel1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnMoi_Click(object sender, EventArgs e)
+        {
+            resetFormPhieuLanh();
+        }
+        private void resetFormPhieuLanh()
+        {
+            txtThang.Text = DateTime.Now.Month.ToString();
+            txtNam.Text = DateTime.Now.Year.ToString();
+            selectKhoaPhong.EditValue = "--";
+            selectNguoiLanh.Properties.DataSource = null;
+            dtChiTiet.Rows.Clear();
+            gcDanhSachThietBi.DataSource = dtChiTiet;
+
+            checkboxChoDuyet.Checked = false;
+            checkboxDaDuyet.Checked = false;
+            checkboxDaPhat.Checked = false;
+            
+        }
+
+        private void FormDanhSachPhieuLanh_Load(object sender, EventArgs e)
+        {
+            
+        }
+        private void loadselectThangNam()
+        {
+            selectThang.SelectedIndex = 0;
+            selectNam.SelectedIndex = 0;
+        }
+        private void loadDanhSachPhieuLanh()
+        {
+            try
+            {
+                int thang = int.Parse(selectThang.Text);
+                int nam = int.Parse(selectNam.Text);
+
+                gcDanhSachPhieuLanh.DataSource = db.P_DanhSachPhieuLanh(thang, nam);
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi hệ thống: " + ex.Message);
+            }
+        }
+
+        private void btnXem_Click(object sender, EventArgs e)
+        {
+            loadDanhSachPhieuLanh();
+        }
+
+        private void gcDanhSachPhieuLanh_Click(object sender, EventArgs e)
+        {
+            
+        }
+        private void loadPhieuLanh()
+        {
+            try
+            {
+                int maPhieuLanh = int.Parse(gvDanhSachPhieuLanh.GetFocusedRowCellValue("MaPhieuLanh").ToString());
+                T_PhieuLanh phieuLanh = db.T_PhieuLanh.Find(maPhieuLanh);
+                txtMaPhieuLanh.Text = phieuLanh.MaPhieuLanh.ToString();
+                txtThang.Text = phieuLanh.Thang.ToString();
+                txtNam.Text = phieuLanh.Nam.ToString();
+                txtSoPhieu.Text = phieuLanh.SoPhieu;
+                selectNguoiLanh.EditValue = phieuLanh.MaNguoiDung;
+                txtGhiChu.Text = phieuLanh.GhiChu;
+                selectKhoaPhong.EditValue = phieuLanh.T_KhoThietBi.T_KhoaPhong.MaKhoa;
+                txtMaKho.Text = phieuLanh.T_KhoThietBi.MaKho.ToString();
+
+                var listChiTiet = phieuLanh.T_PhieuLanh_ChiTiet.ToList();
+                //convert list to DataTable;
+                //dtChiTiet.Rows.Clear();
+                //foreach (var item in listChiTiet)
+                //{
+                //    DataRow row = dtChiTiet.NewRow();
+                //    row["MaThietBi"] = item.MaThietBi;
+                //    row["STT"] = item.STT;
+                //    row["TenThietBi"] = item.TenThietBi;
+                //    row["DonVi"] = item.DonVi;
+                //    row["SoLuong"] = item.SoLuong;
+                //    row["DonGia"] = item.DonGia;
+                //    row["ThanhTien"] = item.ThanhTien;
+                //    dtChiTiet.Rows.Add(row);
+                //}
+                //gcDanhSachThietBi.DataSource = dtChiTiet;
+                //tinhTien();
+
+            }
+            catch (Exception ex)
+            {
+                resetFormPhieuLanh();
+            }
         }
     }
 }

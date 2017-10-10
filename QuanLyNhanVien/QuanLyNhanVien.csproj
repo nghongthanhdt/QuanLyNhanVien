@@ -255,6 +255,9 @@
     <Compile Include="Models\P_DanhSachNhanVien_Result.cs">
       <DependentUpon>QuanLyNhanVienEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\P_DanhSachPhieuLanh_Result.cs">
+      <DependentUpon>QuanLyNhanVienEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\P_DanhSachPhieuNhap_Result.cs">
       <DependentUpon>QuanLyNhanVienEntities.tt</DependentUpon>
     </Compile>
@@ -298,6 +301,12 @@
       <DependentUpon>QuanLyNhanVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\T_PhieuKham.cs">
+      <DependentUpon>QuanLyNhanVienEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_PhieuLanh.cs">
+      <DependentUpon>QuanLyNhanVienEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_PhieuLanh_ChiTiet.cs">
       <DependentUpon>QuanLyNhanVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\T_PhieuNhap.cs">
