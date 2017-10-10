@@ -12,23 +12,18 @@ namespace QuanLyNhanVien.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class T_KhoThietBi
+    public partial class T_ChucNang
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public T_KhoThietBi()
+        public T_ChucNang()
         {
-            this.T_PhieuNhap = new HashSet<T_PhieuNhap>();
+            this.T_NguoiDung = new HashSet<T_NguoiDung>();
         }
     
-        public int MaKho { get; set; }
-        public string MaKhoa { get; set; }
-        public string TenKho { get; set; }
-        public string KyHieu { get; set; }
-        public Nullable<int> STT { get; set; }
-        public bool IsEnable { get; set; }
+        public string MaChucNang { get; set; }
+        public string TenChucNang { get; set; }
     
-        public virtual T_KhoaPhong T_KhoaPhong { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<T_PhieuNhap> T_PhieuNhap { get; set; }
+        public virtual ICollection<T_NguoiDung> T_NguoiDung { get; set; }
     }
 }

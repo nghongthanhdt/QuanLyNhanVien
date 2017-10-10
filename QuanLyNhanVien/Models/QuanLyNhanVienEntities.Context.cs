@@ -33,6 +33,10 @@ namespace QuanLyNhanVien.Models
         public virtual DbSet<T_PhieuKham> T_PhieuKham { get; set; }
         public virtual DbSet<T_KhoThietBi> T_KhoThietBi { get; set; }
         public virtual DbSet<T_Lib_ThietBi> T_Lib_ThietBi { get; set; }
+        public virtual DbSet<T_PhieuNhap> T_PhieuNhap { get; set; }
+        public virtual DbSet<T_PhieuNhap_ChiTiet> T_PhieuNhap_ChiTiet { get; set; }
+        public virtual DbSet<T_ChucNang> T_ChucNang { get; set; }
+        public virtual DbSet<T_NguoiDung> T_NguoiDung { get; set; }
     
         public virtual ObjectResult<P_DanhSachKhoaPhong_Result> P_DanhSachKhoaPhong()
         {
@@ -90,6 +94,53 @@ namespace QuanLyNhanVien.Models
                 new ObjectParameter("KyHieu", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_UpdateKho", maKhoParameter, maKhoaParameter, tenKhoParameter, kyHieuParameter);
+        }
+    
+        public virtual ObjectResult<P_InsertPhieuNhap_Result> P_InsertPhieuNhap(Nullable<int> maKho, string nhaCungCap, Nullable<System.DateTime> ngayNhap, string nguoiNhap, string ghiChu)
+        {
+            var maKhoParameter = maKho.HasValue ?
+                new ObjectParameter("MaKho", maKho) :
+                new ObjectParameter("MaKho", typeof(int));
+    
+            var nhaCungCapParameter = nhaCungCap != null ?
+                new ObjectParameter("NhaCungCap", nhaCungCap) :
+                new ObjectParameter("NhaCungCap", typeof(string));
+    
+            var ngayNhapParameter = ngayNhap.HasValue ?
+                new ObjectParameter("NgayNhap", ngayNhap) :
+                new ObjectParameter("NgayNhap", typeof(System.DateTime));
+    
+            var nguoiNhapParameter = nguoiNhap != null ?
+                new ObjectParameter("NguoiNhap", nguoiNhap) :
+                new ObjectParameter("NguoiNhap", typeof(string));
+    
+            var ghiChuParameter = ghiChu != null ?
+                new ObjectParameter("GhiChu", ghiChu) :
+                new ObjectParameter("GhiChu", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<P_InsertPhieuNhap_Result>("P_InsertPhieuNhap", maKhoParameter, nhaCungCapParameter, ngayNhapParameter, nguoiNhapParameter, ghiChuParameter);
+        }
+    
+        public virtual ObjectResult<P_DanhSachPhieuNhap_Result> P_DanhSachPhieuNhap(Nullable<System.DateTime> tuNgay, Nullable<System.DateTime> denNgay)
+        {
+            var tuNgayParameter = tuNgay.HasValue ?
+                new ObjectParameter("TuNgay", tuNgay) :
+                new ObjectParameter("TuNgay", typeof(System.DateTime));
+    
+            var denNgayParameter = denNgay.HasValue ?
+                new ObjectParameter("DenNgay", denNgay) :
+                new ObjectParameter("DenNgay", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<P_DanhSachPhieuNhap_Result>("P_DanhSachPhieuNhap", tuNgayParameter, denNgayParameter);
+        }
+    
+        public virtual ObjectResult<P_DanhSachChiTietPhieuNhap_Result> P_DanhSachChiTietPhieuNhap(Nullable<int> maPhieuNhap)
+        {
+            var maPhieuNhapParameter = maPhieuNhap.HasValue ?
+                new ObjectParameter("MaPhieuNhap", maPhieuNhap) :
+                new ObjectParameter("MaPhieuNhap", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<P_DanhSachChiTietPhieuNhap_Result>("P_DanhSachChiTietPhieuNhap", maPhieuNhapParameter);
         }
     }
 }

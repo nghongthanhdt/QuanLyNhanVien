@@ -15,6 +15,7 @@ namespace QuanLyNhanVien.App_Forms
     public partial class FormPhieuNhapKhoThemThietBi : DevExpress.XtraEditors.XtraForm
     {
         public string outMaThietBi = "0";
+        public bool isSelected = false;
         public FormPhieuNhapKhoThemThietBi()
         {
             InitializeComponent();
@@ -47,10 +48,12 @@ namespace QuanLyNhanVien.App_Forms
             if (gvDanhSachThietBi.FocusedRowHandle >= 0)
             {
                 outMaThietBi = gvDanhSachThietBi.GetFocusedRowCellValue("MaThietBi").ToString();
+                isSelected = true;
             }
             else
             {
                 outMaThietBi = "0";
+
             }
             this.Close();
         }

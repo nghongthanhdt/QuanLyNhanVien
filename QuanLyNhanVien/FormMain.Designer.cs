@@ -140,6 +140,7 @@
             this.menuNhapKho.Id = 8;
             this.menuNhapKho.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("menuNhapKho.LargeGlyph")));
             this.menuNhapKho.Name = "menuNhapKho";
+            this.menuNhapKho.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.menuNhapKho_ItemClick);
             // 
             // menuPhatVanPhongPham
             // 

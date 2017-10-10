@@ -402,3 +402,5 @@ D:\_Developer\QuanLyNhanVien\QuanLyNhanVien\obj\Release\QuanLyNhanVien.applicati
 D:\_Developer\QuanLyNhanVien\QuanLyNhanVien\obj\Release\QuanLyNhanVien.exe
 D:\_Developer\QuanLyNhanVien\QuanLyNhanVien\obj\Release\QuanLyNhanVien.pdb
 D:\_Developer\QuanLyNhanVien\QuanLyNhanVien\obj\Release\QuanLyNhanVien.csprojResolveAssemblyReference.cache
+D:\_Developer\QuanLyNhanVien\QuanLyNhanVien\obj\Release\QuanLyNhanVien.App_Forms.FormDanhSachPhieuLanh.resources
+D:\_Developer\QuanLyNhanVien\QuanLyNhanVien\obj\Release\QuanLyNhanVien.UserControls.UCThemXoaSuaButton.resources

@@ -13,8 +13,16 @@
         <AssociationConnector Association="QuanLyNhanVien.Models.FK__T_PhieuKh__MaNha__0CBAE877" />
         <EntityTypeShape EntityType="QuanLyNhanVien.Models.T_KhoThietBi" Width="1.5" PointX="3" PointY="13.125" />
         <AssociationConnector Association="QuanLyNhanVien.Models.FK__T_KhoThie__MaKho__34C8D9D1" />
-        <EntityTypeShape EntityType="QuanLyNhanVien.Models.T_Lib_ThietBi" Width="1.5" PointX="3.375" PointY="0.5" />
-      </Diagram>
+        <EntityTypeShape EntityType="QuanLyNhanVien.Models.T_Lib_ThietBi" Width="1.5" PointX="10.125" PointY="17" />
+        <EntityTypeShape EntityType="QuanLyNhanVien.Models.T_PhieuNhap" Width="1.5" PointX="4.5" PointY="18.75" />
+        <AssociationConnector Association="QuanLyNhanVien.Models.FK__T_PhieuNh__MaKho__6754599E" />
+        <EntityTypeShape EntityType="QuanLyNhanVien.Models.T_PhieuNhap_ChiTiet" Width="1.5" PointX="7.875" PointY="19.375" />
+        <AssociationConnector Association="QuanLyNhanVien.Models.FK__T_PhieuNh__MaPhi__0C85DE4D" />
+        <EntityTypeShape EntityType="QuanLyNhanVien.Models.T_ChucNang" Width="1.5" PointX="5.75" PointY="23.625" />
+        <EntityTypeShape EntityType="QuanLyNhanVien.Models.T_NguoiDung" Width="1.5" PointX="8" PointY="8.25" />
+        <AssociationConnector Association="QuanLyNhanVien.Models.FK__T_NguoiDu__MaKho__31B762FC" />
+        <AssociationConnector Association="QuanLyNhanVien.Models.T_NguoiDung_ChucNang" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

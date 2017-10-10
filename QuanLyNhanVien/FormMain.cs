@@ -112,5 +112,27 @@ namespace QuanLyNhanVien
                 f.Show();
             }
         }
+
+        private void menuNhapKho_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            bool IsOpen = false;
+            foreach (Form myForm in Application.OpenForms)
+            {
+                if (myForm.Name == "FormDanhSachPhieuNhap")
+                {
+                    IsOpen = true;
+                    myForm.Focus();
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                FormDanhSachPhieuNhap f = new FormDanhSachPhieuNhap();
+                f.Name = "FormDanhSachPhieuNhap";
+                f.Text = "Phiếu nhập kho";
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }
